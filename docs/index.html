@@ -1,21 +1,200 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SciGen Manual Review Samples</title><style>
-:root { --bg:#f7f7f4; --ink:#1f2933; --muted:#697386; --line:#d7dce2; --panel:#fff; --covered:#176b45; --partial:#8a5a00; --missing:#8a2432; --contradicted:#7b2cbf; }
-* { box-sizing:border-box; } body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.45; }
-header { padding:28px 36px 18px; border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:10; }
-h1 { margin:0 0 8px; font-size:24px; letter-spacing:0; } .meta { color:var(--muted); font-size:14px; display:flex; gap:16px; flex-wrap:wrap; }
-main { padding:22px 36px 48px; max-width:1500px; margin:0 auto; } .record { background:var(--panel); border:1px solid var(--line); border-radius:8px; margin:0 0 22px; overflow:hidden; }
-.record-head { padding:16px 18px; border-bottom:1px solid var(--line); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:start; }
-.record-title { font-weight:700; font-size:17px; margin:0 0 6px; } .paper { color:var(--muted); font-size:13px; }
-.badges { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; } .badge { border-radius:999px; padding:3px 9px; font-size:12px; border:1px solid var(--line); background:#f6f8fa; white-space:nowrap; }
-.badge.covered { color:var(--covered); border-color:#8bc7aa; background:#edf8f2; } .badge.partially_covered { color:var(--partial); border-color:#e2bf75; background:#fff8e6; } .badge.missing { color:var(--missing); border-color:#e4a1aa; background:#fff1f3; } .badge.contradicted { color:var(--contradicted); border-color:#c9a5ee; background:#f8f1ff; }
-.section { padding:16px 18px; border-bottom:1px solid var(--line); } .section:last-child { border-bottom:0; } h2 { margin:0 0 10px; font-size:15px; letter-spacing:0; } p { margin:0 0 10px; }
-.caption { font-weight:600; } .gold { color:#303846; } .grid { display:grid; grid-template-columns:minmax(320px,.9fr) minmax(420px,1.1fr); gap:16px; }
-.table-wrap { overflow:auto; border:1px solid var(--line); border-radius:6px; max-height:380px; } table { border-collapse:collapse; width:100%; font-size:13px; background:#fff; }
-th, td { border-bottom:1px solid #e8ebef; border-right:1px solid #eef1f4; padding:6px 8px; text-align:right; vertical-align:top; white-space:nowrap; } th { position:sticky; top:0; background:#f0f3f6; z-index:1; font-weight:700; }
-th:first-child, td:first-child { text-align:left; position:sticky; left:0; background:inherit; z-index:2; } th:first-child { z-index:3; }
-.insight { border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin:0 0 10px; background:#fbfcfd; } .insight .claim { font-weight:650; margin-bottom:6px; } .insight .detail { color:var(--muted); font-size:13px; margin-top:4px; }
-.status-line { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:6px 0; } .status { border-radius:4px; padding:2px 7px; font-size:12px; font-weight:700; } .status.covered { color:white; background:var(--covered); } .status.partially_covered { color:white; background:var(--partial); } .status.missing { color:white; background:var(--missing); } .status.contradicted { color:white; background:var(--contradicted); }
-.mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; } details { margin-top:8px; } summary { cursor:pointer; color:#2f5f98; font-size:13px; } pre { white-space:pre-wrap; overflow-wrap:anywhere; background:#f5f7f9; border:1px solid var(--line); border-radius:6px; padding:8px; max-height:260px; overflow:auto; font-size:12px; }
-.nav { margin-top:10px; display:flex; gap:10px; } a { color:#1f5e99; text-decoration:none; } a:hover { text-decoration:underline; }
-@media (max-width:980px) { header, main { padding-left:18px; padding-right:18px; } .grid { grid-template-columns:1fr; } .record-head { grid-template-columns:1fr; } .badges { justify-content:flex-start; } }
-</style></head><body><header><h1>SciGen Manual Review Samples</h1><div class="meta"><span>50 records per group</span><span>Seed: 20260625</span><span>Generated from merged verified outputs</span></div></header><main><article class="record"><div class="record-head"><div><div class="record-title">test-CL</div><div class="paper">50 sampled records · deterministic seed 20260625</div><div class="nav"><a href="test_cl_sample50.html">Open HTML review</a><a href="test_cl_sample50_records.csv">Sample CSV</a></div></div><div class="badges"><span class="badge covered">Covered: 15</span><span class="badge partially_covered">Partially covered: 40</span><span class="badge missing">Missing: 130</span><span class="badge contradicted">Contradicted: 4</span></div></div></article><article class="record"><div class="record-head"><div><div class="record-title">test-Other</div><div class="paper">50 sampled records · deterministic seed 20260625</div><div class="nav"><a href="test_other_sample50.html">Open HTML review</a><a href="test_other_sample50_records.csv">Sample CSV</a></div></div><div class="badges"><span class="badge covered">Covered: 17</span><span class="badge partially_covered">Partially covered: 45</span><span class="badge missing">Missing: 110</span><span class="badge contradicted">Contradicted: 3</span></div></div></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Pages</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --panel: #ffffff;
+      --ink: #222426;
+      --muted: #687078;
+      --line: #d9ddd9;
+      --accent: #0f766e;
+      --accent-soft: #d9f1ed;
+      --shadow: 0 1px 2px rgba(20, 25, 30, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+    main.wrap {
+      padding-top: 24px;
+    }
+    .section-title {
+      margin: 6px 0 14px;
+      font-size: 15px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .card {
+      display: block;
+      min-height: 168px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: inherit;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+    }
+    .card:hover {
+      border-color: #9fc7c0;
+      box-shadow: 0 4px 14px rgba(20, 25, 30, 0.10);
+      transform: translateY(-1px);
+    }
+    .card.primary {
+      border-color: #99d2ca;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fbf9 100%);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #07544f;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .tag.secondary {
+      background: #edf0f2;
+      color: #48505a;
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .file {
+      margin-top: 14px;
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 10px 20px 32px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Review Pages</h1>
+      <p class="lead">
+        Entry page for the generated HTML review artifacts. Open a card below to inspect the corresponding review page.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="section-title">Text-aware reranking baseline</div>
+    <div class="grid">
+      <a class="card primary" href="manual_review_combined_candidates_top1_80.html">
+        <span class="tag">Final review</span>
+        <h2>Combined Candidate Top-1 Review</h2>
+        <p class="desc">
+          Manual review page for the final combined candidate pool with bidirectional text-aware reranking.
+        </p>
+        <div class="file">manual_review_combined_candidates_top1_80.html</div>
+      </a>
+    </div>
+
+    <div class="section-title" style="margin-top: 26px;">SciGen review pages</div>
+    <div class="grid">
+      <a class="card" href="manual_review_discovery_rule_qtp_50.html">
+        <span class="tag secondary">Discovery</span>
+        <h2>Rule vs QTP Discovery Review</h2>
+        <p class="desc">Manual review sample comparing discovered insights from rule and QTP-style baselines.</p>
+        <div class="file">manual_review_discovery_rule_qtp_50.html</div>
+      </a>
+
+      <a class="card" href="manual_review_audit_comparison_50.html">
+        <span class="tag secondary">Audit</span>
+        <h2>Audit Comparison Review</h2>
+        <p class="desc">Manual review sample comparing audit labels and top insights across baseline variants.</p>
+        <div class="file">manual_review_audit_comparison_50.html</div>
+      </a>
+
+      <a class="card" href="test_cl_sample50.html">
+        <span class="tag secondary">SciGen CL</span>
+        <h2>Test-CL Sample Review</h2>
+        <p class="desc">Sampled review page for the SciGen computational linguistics test split.</p>
+        <div class="file">test_cl_sample50.html</div>
+      </a>
+
+      <a class="card" href="test_other_sample50.html">
+        <span class="tag secondary">SciGen Other</span>
+        <h2>Test-Other Sample Review</h2>
+        <p class="desc">Sampled review page for the SciGen non-CL test split.</p>
+        <div class="file">test_other_sample50.html</div>
+      </a>
+    </div>
+
+    <div class="section-title" style="margin-top: 26px;">Verifier review pages</div>
+    <div class="grid">
+      <a class="card" href="scigen_dev_single_level_review.html">
+        <span class="tag secondary">SciGen verifier</span>
+        <h2>SciGen Dev Single-Level Review</h2>
+        <p class="desc">Verifier review page for SciGen development examples.</p>
+        <div class="file">scigen_dev_single_level_review.html</div>
+      </a>
+
+      <a class="card" href="numericnlg_val_single_level_review.html">
+        <span class="tag secondary">NumericNLG verifier</span>
+        <h2>NumericNLG Validation Review</h2>
+        <p class="desc">Verifier review page for NumericNLG validation examples.</p>
+        <div class="file">numericnlg_val_single_level_review.html</div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    GitHub Pages will serve this file as the default page for the <code>docs/</code> folder.
+  </footer>
+</body>
+</html>
