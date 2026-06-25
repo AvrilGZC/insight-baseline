@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>numericNLG Single-Level Audit Review</title>
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --panel: #fffdf8;
+      --ink: #1f1b16;
+      --muted: #6a6259;
+      --line: #d8cfc1;
+      --accent: #2d6a4f;
+      --accent-soft: #dceee4;
+      --warn: #b5651d;
+      --warn-soft: #fde7d2;
+      --danger: #a61e4d;
+      --danger-soft: #ffd9e2;
+      --shadow: 0 18px 40px rgba(31, 27, 22, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      background:
+        radial-gradient(circle at top left, rgba(220, 238, 228, 0.9), transparent 28%),
+        radial-gradient(circle at top right, rgba(255, 217, 226, 0.55), transparent 22%),
+        linear-gradient(180deg, #f8f4ed 0%, var(--bg) 100%);
+      color: var(--ink);
+    }
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,253,248,0.86));
+      border: 1px solid rgba(216, 207, 193, 0.8);
+      border-radius: 24px;
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      max-width: 840px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .card-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .card-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .toolbar input, .toolbar select {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--ink);
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 248, 0.92);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      color: var(--ink);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .panel {
+      display: none;
+      background: rgba(255,253,248,0.92);
+      border: 1px solid rgba(216, 207, 193, 0.88);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .panel.active { display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      position: sticky;
+      top: 0;
+      background: rgba(255,253,248,0.98);
+    }
+    .claim {
+      min-width: 360px;
+      line-height: 1.45;
+    }
+    .caption {
+      min-width: 280px;
+      color: var(--muted);
+    }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .pill-refuted { background: var(--danger-soft); color: var(--danger); }
+    .pill-nei { background: var(--warn-soft); color: var(--warn); }
+    .pill-supported { background: var(--accent-soft); color: var(--accent); }
+    .score {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .scroll {
+      overflow: auto;
+      max-height: 72vh;
+      border-radius: 14px;
+    }
+    .empty {
+      padding: 28px 16px;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>numericNLG Single-Level Audit Review</h1>
+      <p class="lede">This page surfaces the strongest verifier decisions from the audit run. Use the tabs to switch between supported, refuted, NEI, and review rows, then use the filters to focus on a paper, table, or wording pattern.</p>
+    </section>
+
+    <section class="cards">
+      <article class="card"><div class="card-label">Records</div><div class="card-value">15</div></article><article class="card"><div class="card-label">Audited Sentences</div><div class="card-value">76</div></article><article class="card"><div class="card-label">Supported</div><div class="card-value">16</div></article><article class="card"><div class="card-label">Refuted</div><div class="card-value">7</div></article><article class="card"><div class="card-label">NEI</div><div class="card-value">53</div></article><article class="card"><div class="card-label">Avg Refuted/Record</div><div class="card-value">0.467</div></article><article class="card"><div class="card-label">Avg NEI/Record</div><div class="card-value">3.533</div></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchBox" type="search" placeholder="Search claim, paper, caption...">
+      <select id="bucketFilter">
+        <option value="all">All buckets</option>
+        <option value="supported">Supported</option>
+        <option value="refuted">Refuted</option>
+        <option value="nei">NEI</option>
+      </select>
+    </section>
+
+    <section class="tabs">
+      <button class="tab-btn active" data-target="supported-panel">Top Supported</button>
+      <button class="tab-btn" data-target="refuted-panel">Top Refuted</button>
+      <button class="tab-btn" data-target="nei-panel">Top NEI</button>
+      <button class="tab-btn" data-target="review-panel">Review Queue</button>
+    </section>
+
+    <section id="supported-panel" class="panel active">
+      
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Bucket</th>
+              <th>Score</th>
+              <th>Claim</th>
+              <th>Context</th>
+              <th>Probabilities</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+    <tr data-bucket="supports" data-search="supports specifically, using all features except phonological features is equivalent to using phonological features alone (about f = 79% in both cases) and slightly worse that using all name-intrinsic features (about f = 80%).  p16-1203 table_5 performance of j48 for different feature settings"><td><span class="pill pill-supports">supports</span></td><td class="score">1.0000</td><td class="claim">Specifically, using all features except phonological features is equivalent to using phonological features alone (about F = 79% in both cases) and slightly worse that using all name-intrinsic features (about F = 80%).</td><td class="caption"><div>Performance of J48 for different feature settings</div><div class="meta"><br>P16-1203 / table_5 / sent 1</div></td><td class="score">support=1.0000<br>refute=0.0000<br>nei=0.0000</td></tr><tr data-bucket="supports" data-search="supports table 2 depicts experiment results.  d17-1310 table_2 experiment results"><td><span class="pill pill-supports">supports</span></td><td class="score">0.9999</td><td class="claim">Table 2 depicts experiment results.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 0</div></td><td class="score">support=0.9999<br>refute=0.0001<br>nei=0.0000</td></tr><tr data-bucket="supports" data-search="supports table 1 (top) presents results of models trained and tested on the synthetic multi-aspect dataset.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9997</td><td class="claim">Table 1 (top) presents results of models trained and tested on the synthetic multi-aspect dataset.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 0</div></td><td class="score">support=0.9997<br>refute=0.0003<br>nei=0.0000</td></tr><tr data-bucket="supports" data-search="supports furthermore, we find that acnn outperforms zagcnn in p@10 by almost 4%.  d18-1352 table_4 p@k, r@k, and macro-f1 results over all labels (the union of s, f, and z)."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9993</td><td class="claim">Furthermore, we find that ACNN outperforms ZAGCNN in P@10 by almost 4%.</td><td class="caption"><div>P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).</div><div class="meta"><br>D18-1352 / table_4 / sent 3</div></td><td class="score">support=0.9993<br>refute=0.0001<br>nei=0.0006</td></tr><tr data-bucket="supports" data-search="supports table 6 presents the average ser rates for each model, where lower rates mean fewer mistakes (indicated by ?).  p19-1596 table_6 automatic semantic evaluation (higher is better for all but ser)."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9991</td><td class="claim">Table 6 presents the average SER rates for each model, where lower rates mean fewer mistakes (indicated by ?).</td><td class="caption"><div>Automatic semantic evaluation (higher is better for all but SER).</div><div class="meta"><br>P19-1596 / table_6 / sent 0</div></td><td class="score">support=0.9991<br>refute=0.0008<br>nei=0.0000</td></tr><tr data-bucket="supports" data-search="supports all aspect-aware models beat both baselines by a large margin.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9980</td><td class="claim">All aspect-aware models beat both baselines by a large margin.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 1</div></td><td class="score">support=0.9980<br>refute=0.0000<br>nei=0.0020</td></tr><tr data-bucket="supports" data-search="supports we can see that s2s-temp outperforms all baseline models in terms of all metrics, and the improvements are statistically significant (t-test with p-value&lt; 0.01).  d19-1197 table_1 automatic evaluation results for the task of question response generation. numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value&lt; 0.01)."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9917</td><td class="claim">We can see that S2S-Temp outperforms all baseline models in terms of all metrics, and the improvements are statistically significant (t-test with p-value&lt; 0.01).</td><td class="caption"><div>Automatic evaluation results for the task of question response generation. Numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value&lt; 0.01).</div><div class="meta"><br>D19-1197 / table_1 / sent 2</div></td><td class="score">support=0.9917<br>refute=0.0034<br>nei=0.0050</td></tr><tr data-bucket="supports" data-search="supports table 5 lists the experimental results.  p18-1044 table_5 the results of case analysis (case) and zero anaphora resolution (zero). we use f-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with gen using paired t-test."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9858</td><td class="claim">Table 5 lists the experimental results.</td><td class="caption"><div>The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with Gen using paired t-test.</div><div class="meta"><br>P18-1044 / table_5 / sent 0</div></td><td class="score">support=0.9858<br>refute=0.0000<br>nei=0.0142</td></tr><tr data-bucket="supports" data-search="supports table 6 shows hate speech detection results.  p19-1343 table_6 hate speech results (3-fold cross val.). in most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). green: best performance in each column."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9750</td><td class="claim">Table 6 shows hate speech detection results.</td><td class="caption"><div>Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.</div><div class="meta"><br>P19-1343 / table_6 / sent 1</div></td><td class="score">support=0.9750<br>refute=0.0249<br>nei=0.0001</td></tr><tr data-bucket="supports" data-search="supports remarkably, synthetic text alone outperforms gold text, because gold text has high class imbalance, leading to poorer prediction.  p19-1343 table_6 hate speech results (3-fold cross val.). in most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). green: best performance in each column."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9666</td><td class="claim">Remarkably, synthetic text alone outperforms gold text, because gold text has high class imbalance, leading to poorer prediction.</td><td class="caption"><div>Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.</div><div class="meta"><br>P19-1343 / table_6 / sent 3</div></td><td class="score">support=0.9666<br>refute=0.0000<br>nei=0.0333</td></tr><tr data-bucket="supports" data-search="supports our models (gen and gen+adv) outperformed the previous models.  p18-1044 table_5 the results of case analysis (case) and zero anaphora resolution (zero). we use f-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with gen using paired t-test."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9282</td><td class="claim">Our models (Gen and Gen+Adv) outperformed the previous models.</td><td class="caption"><div>The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with Gen using paired t-test.</div><div class="meta"><br>P18-1044 / table_5 / sent 1</div></td><td class="score">support=0.9282<br>refute=0.0287<br>nei=0.0431</td></tr><tr data-bucket="supports" data-search="supports table 3 shows that our ap algorithm outperforms all 3 baseline methods.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9227</td><td class="claim">Table 3 shows that our AP algorithm outperforms all 3 baseline methods.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 3</div></td><td class="score">support=0.9227<br>refute=0.0422<br>nei=0.0351</td></tr><tr data-bucket="supports" data-search="supports we find that r@10 is nearly equivalent to the r@10 on the frequent group in table 3.  d18-1352 table_4 p@k, r@k, and macro-f1 results over all labels (the union of s, f, and z)."><td><span class="pill pill-supports">supports</span></td><td class="score">0.9226</td><td class="claim">We find that R@10 is nearly equivalent to the R@10 on the frequent group in Table 3.</td><td class="caption"><div>P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).</div><div class="meta"><br>D18-1352 / table_4 / sent 2</div></td><td class="score">support=0.9226<br>refute=0.0023<br>nei=0.0752</td></tr><tr data-bucket="supports" data-search="supports table 2 shows the accuracies of all baseline systems on the development sets.  p16-1181 table_2 results (f1) for baselines for sentence boundary detection on dev sets."><td><span class="pill pill-supports">supports</span></td><td class="score">0.8215</td><td class="claim">Table 2 shows the accuracies of all baseline systems on the development sets.</td><td class="caption"><div>Results (F1) for baselines for sentence boundary detection on dev sets.</div><div class="meta"><br>P16-1181 / table_2 / sent 0</div></td><td class="score">support=0.8215<br>refute=0.0980<br>nei=0.0805</td></tr><tr data-bucket="supports" data-search="supports table 1 report the results of automatic evaluation on the question response generation task.  d19-1197 table_1 automatic evaluation results for the task of question response generation. numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value&lt; 0.01)."><td><span class="pill pill-supports">supports</span></td><td class="score">0.7865</td><td class="claim">Table 1 report the results of automatic evaluation on the question response generation task.</td><td class="caption"><div>Automatic evaluation results for the task of question response generation. Numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value&lt; 0.01).</div><div class="meta"><br>D19-1197 / table_1 / sent 1</div></td><td class="score">support=0.7865<br>refute=0.0000<br>nei=0.2135</td></tr><tr data-bucket="supports" data-search="supports the kappa measure between the analysts is 0.71, which shows a substantial agreement.  p17-2079 table_3 comparison with another chatbot."><td><span class="pill pill-supports">supports</span></td><td class="score">0.7253</td><td class="claim">The Kappa measure between the analysts is 0.71, which shows a substantial agreement.</td><td class="caption"><div>Comparison with another chatbot.</div><div class="meta"><br>P17-2079 / table_3 / sent 4</div></td><td class="score">support=0.7253<br>refute=0.0000<br>nei=0.2747</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="empty" style="display:none;">No rows match the current filter.</div>
+    
+    </section>
+    <section id="refuted-panel" class="panel">
+      
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Bucket</th>
+              <th>Score</th>
+              <th>Claim</th>
+              <th>Context</th>
+              <th>Probabilities</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+    <tr data-bucket="refutes" data-search="refutes naturally, base, with no access to style information, has the best (lowest) ser.  p19-1596 table_6 automatic semantic evaluation (higher is better for all but ser)."><td><span class="pill pill-refutes">refutes</span></td><td class="score">1.0000</td><td class="claim">Naturally, BASE, with no access to style information, has the best (lowest) SER.</td><td class="caption"><div>Automatic semantic evaluation (higher is better for all but SER).</div><div class="meta"><br>P19-1596 / table_6 / sent 4</div></td><td class="score">support=0.0000<br>refute=1.0000<br>nei=0.0000</td></tr><tr data-bucket="refutes" data-search="refutes it shows that the differences between models are not restricted to arcs of particular lengths.  p19-1012 table_1 average (from six runs) parsing results (las) on test sets. † marks statistical significance (p-value &lt; 0.05). corresponding standard deviations are provided in table 3 in appendix a."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.9982</td><td class="claim">It shows that the differences between models are not restricted to arcs of particular lengths.</td><td class="caption"><div>Average (from six runs) parsing results (LAS) on test sets. † marks statistical significance (p-value &lt; 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.</div><div class="meta"><br>P19-1012 / table_1 / sent 3</div></td><td class="score">support=0.0001<br>refute=0.9983<br>nei=0.0016</td></tr><tr data-bucket="refutes" data-search="refutes comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.  p19-1012 table_1 average (from six runs) parsing results (las) on test sets. † marks statistical significance (p-value &lt; 0.05). corresponding standard deviations are provided in table 3 in appendix a."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.8313</td><td class="claim">Comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.</td><td class="caption"><div>Average (from six runs) parsing results (LAS) on test sets. † marks statistical significance (p-value &lt; 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.</div><div class="meta"><br>P19-1012 / table_1 / sent 1</div></td><td class="score">support=0.0005<br>refute=0.8319<br>nei=0.1676</td></tr><tr data-bucket="refutes" data-search="refutes furthermore, the proposed model with adversarial training (gen+adv) was significantly better than the supervised model (gen).  p18-1044 table_5 the results of case analysis (case) and zero anaphora resolution (zero). we use f-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with gen using paired t-test."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.7395</td><td class="claim">Furthermore, the proposed model with adversarial training (Gen+Adv) was significantly better than the supervised model (Gen).</td><td class="caption"><div>The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with Gen using paired t-test.</div><div class="meta"><br>P18-1044 / table_5 / sent 2</div></td><td class="score">support=0.0842<br>refute=0.8237<br>nei=0.0920</td></tr><tr data-bucket="refutes" data-search="refutes both r@k and p@k give more weight to frequent labels, thus it is expected that acnn outperforms zagcnn for frequent labels.  d18-1352 table_4 p@k, r@k, and macro-f1 results over all labels (the union of s, f, and z)."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.6441</td><td class="claim">Both R@k and P@k give more weight to frequent labels, thus it is expected that ACNN outperforms ZAGCNN for frequent labels.</td><td class="caption"><div>P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).</div><div class="meta"><br>D18-1352 / table_4 / sent 5</div></td><td class="score">support=0.1728<br>refute=0.8168<br>nei=0.0104</td></tr><tr data-bucket="refutes" data-search="refutes but we note that there is not a large increase in ser as more information is added – even for the most difficult setting, +style, the models make an error on less than 10% of the slots in a given mr, on average.  p19-1596 table_6 automatic semantic evaluation (higher is better for all but ser)."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.3733</td><td class="claim">But we note that there is not a large increase in SER as more information is added – even for the most difficult setting, +STYLE, the models make an error on less than 10% of the slots in a given MR, on average.</td><td class="caption"><div>Automatic semantic evaluation (higher is better for all but SER).</div><div class="meta"><br>P19-1596 / table_6 / sent 5</div></td><td class="score">support=0.1589<br>refute=0.5322<br>nei=0.3089</td></tr><tr data-bucket="refutes" data-search="refutes these results show that our ap method produces more correct answers at the top of the list than the baseline methods.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-refutes">refutes</span></td><td class="score">0.0388</td><td class="claim">These results show that our AP method produces more correct answers at the top of the list than the baseline methods.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 8</div></td><td class="score">support=0.4020<br>refute=0.4408<br>nei=0.1571</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="empty" style="display:none;">No rows match the current filter.</div>
+    
+    </section>
+    <section id="nei-panel" class="panel">
+      
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Bucket</th>
+              <th>Score</th>
+              <th>Claim</th>
+              <th>Context</th>
+              <th>Probabilities</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+    <tr data-bucket="nei" data-search="nei table 6 summarizes the results for different systems, including the baseline cnn model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted da information (posterior probabilities) is combined with the current sentence&#x27;s cnn-based representation; (b) applying a blstm on top of the sentence cnn representation; (c) hierarchical cnn that combines the current sentence&#x27;s cnn representation with its neighbors; (d) sequence decoding by combining cnn posteriors with da transition scores.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Table 6 summarizes the results for different systems, including the baseline CNN model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted DA information (posterior probabilities) is combined with the current sentence&#x27;s CNN-based representation; (b) applying a BLSTM on top of the sentence CNN representation; (c) hierarchical CNN that combines the current sentence&#x27;s CNN representation with its neighbors; (d) sequence decoding by combining CNN posteriors with DA transition scores.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 0</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei in table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.  d18-1229 table_1 we show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. this is shown for the last round of bootstrapping (c.f. fig. 3a) and extrapolation (c.f. fig. 3b)."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">In Table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.</td><td class="caption"><div>We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).</div><div class="meta"><br>D18-1229 / table_1 / sent 0</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei compared to the best systems in semeval challenge, min achieves 3.0% and 1.1% absolute gains on d1 and d2 respectively.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Compared to the best systems in SemEval challenge, MIN achieves 3.0% and 1.1% absolute gains on D1 and D2 respectively.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei the recall performance in table 1 also confirms the performance gains of the scatterplot.  d18-1229 table_1 we show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. this is shown for the last round of bootstrapping (c.f. fig. 3a) and extrapolation (c.f. fig. 3b)."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">The recall performance in Table 1 also confirms the performance gains of the scatterplot.</td><td class="caption"><div>We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).</div><div class="meta"><br>D18-1229 / table_1 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei we select 878 out of the 1047 testing questions (used in the a/b test) by removing questions relevant to our chatbot, and use it to test the public one.  p17-2079 table_3 comparison with another chatbot."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">We select 878 out of the 1047 testing questions (used in the A/B test) by removing questions relevant to our chatbot, and use it to test the public one.</td><td class="caption"><div>Comparison with another chatbot.</div><div class="meta"><br>P17-2079 / table_3 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei besides, our min outperforms wdemb, a strong crf-based system benefiting from several kinds of useful word embeddings, by 2.1% on d1.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Besides, our MIN outperforms WDEmb, a strong CRF-based system benefiting from several kinds of useful word embeddings, by 2.1% on D1.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei we show results for 5 variations of the algorithm: ap uses algorithm 1, and the others use algorithm 2 with different activity similarity measures: ap+al (location profile similarity), ap+ao (overlap similarity), ap+ae (embedding similarity), and ap+al+e (location profiles plus embeddings).  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">We show results for 5 variations of the algorithm: AP uses Algorithm 1, and the others use Algorithm 2 with different Activity Similarity measures: AP+AL (location profile similarity), AP+AO (overlap similarity), AP+AE (embedding similarity), and AP+AL+E (location profiles plus embeddings).</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei for classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, pg-net performs worse than lead-3.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">For classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, PG-net performs worse than lead-3.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei with memory interactions and consideration of sentimental sentence, our min boosts the performance of vanilla bi-directional lstm (+2.0% and +1.7% respectively).  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">With memory interactions and consideration of sentimental sentence, our MIN boosts the performance of vanilla bi-directional LSTM (+2.0% and +1.7% respectively).</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei it validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">It validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.  p19-1343 table_6 hate speech results (3-fold cross val.). in most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). green: best performance in each column."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.</td><td class="caption"><div>Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.</div><div class="meta"><br>P19-1343 / table_6 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.  d19-1399 table_8 f1 performance of dglstm-crf with predicted dependencies against the best performing bilstm-crf. †: las is label attachment score which is the metric for dependency evaluation."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.</td><td class="caption"><div>F1 performance of DGLSTM-CRF with predicted dependencies against the best performing BiLSTM-CRF. †: LAS is label attachment score which is the metric for dependency evaluation.</div><div class="meta"><br>D19-1399 / table_8 / sent 5</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei to further study the impact of each element in min, we conduct ablation experiments.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">To further study the impact of each element in MIN, we conduct ablation experiments.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 6</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei for these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">For these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 7</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei from the results, we can see the positive effect when context information is used.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">From the results, we can see the positive effect when context information is used.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei the first 3 rows show the results for the baseline systems, and the remaining rows show results for our activity profile (ap) semi-supervised learning method.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">The first 3 rows show the results for the baseline systems, and the remaining rows show results for our Activity Profile (AP) semi-supervised learning method.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei comparing representing context information via the da labels of the previous utterances vs using the hierarchical cnn or rnn model, we see there is not much difference.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Comparing representing context information via the DA labels of the previous utterances vs using the hierarchical CNN or RNN model, we see there is not much difference.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of rouge, and the decoder attention distributions are more amenable to extraction than encoder attention scores.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">Unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of ROUGE, and the decoder attention distributions are more amenable to extraction than encoder attention scores.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr><tr data-bucket="nei" data-search="nei all the methods using context yield significant improvement over the baseline (statistically significant based on t-test).  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">1.0000</td><td class="claim">All the methods using context yield significant improvement over the baseline (statistically significant based on t-test).</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="empty" style="display:none;">No rows match the current filter.</div>
+    
+    </section>
+    <section id="review-panel" class="panel">
+      
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Bucket</th>
+              <th>Score</th>
+              <th>Claim</th>
+              <th>Context</th>
+              <th>Probabilities</th>
+              <th>Manual Label</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+    <tr data-bucket="refuted" data-search="refuted naturally, base, with no access to style information, has the best (lowest) ser.  p19-1596 table_6 automatic semantic evaluation (higher is better for all but ser)."><td><span class="pill pill-refuted">refuted</span></td><td class="score">1.0000</td><td class="claim">Naturally, BASE, with no access to style information, has the best (lowest) SER.</td><td class="caption"><div>Automatic semantic evaluation (higher is better for all but SER).</div><div class="meta"><br>P19-1596 / table_6 / sent 4</div></td><td class="score">support=0.0000<br>refute=1.0000<br>nei=0.0000</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted it shows that the differences between models are not restricted to arcs of particular lengths.  p19-1012 table_1 average (from six runs) parsing results (las) on test sets. † marks statistical significance (p-value &lt; 0.05). corresponding standard deviations are provided in table 3 in appendix a."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.9982</td><td class="claim">It shows that the differences between models are not restricted to arcs of particular lengths.</td><td class="caption"><div>Average (from six runs) parsing results (LAS) on test sets. † marks statistical significance (p-value &lt; 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.</div><div class="meta"><br>P19-1012 / table_1 / sent 3</div></td><td class="score">support=0.0001<br>refute=0.9983<br>nei=0.0016</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.  p19-1012 table_1 average (from six runs) parsing results (las) on test sets. † marks statistical significance (p-value &lt; 0.05). corresponding standard deviations are provided in table 3 in appendix a."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.8313</td><td class="claim">Comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.</td><td class="caption"><div>Average (from six runs) parsing results (LAS) on test sets. † marks statistical significance (p-value &lt; 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.</div><div class="meta"><br>P19-1012 / table_1 / sent 1</div></td><td class="score">support=0.0005<br>refute=0.8319<br>nei=0.1676</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted furthermore, the proposed model with adversarial training (gen+adv) was significantly better than the supervised model (gen).  p18-1044 table_5 the results of case analysis (case) and zero anaphora resolution (zero). we use f-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with gen using paired t-test."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.7395</td><td class="claim">Furthermore, the proposed model with adversarial training (Gen+Adv) was significantly better than the supervised model (Gen).</td><td class="caption"><div>The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. ‡ denotes that the improvement is statistically significant at p &lt; 0.05, compared with Gen using paired t-test.</div><div class="meta"><br>P18-1044 / table_5 / sent 2</div></td><td class="score">support=0.0842<br>refute=0.8237<br>nei=0.0920</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted both r@k and p@k give more weight to frequent labels, thus it is expected that acnn outperforms zagcnn for frequent labels.  d18-1352 table_4 p@k, r@k, and macro-f1 results over all labels (the union of s, f, and z)."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.6441</td><td class="claim">Both R@k and P@k give more weight to frequent labels, thus it is expected that ACNN outperforms ZAGCNN for frequent labels.</td><td class="caption"><div>P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).</div><div class="meta"><br>D18-1352 / table_4 / sent 5</div></td><td class="score">support=0.1728<br>refute=0.8168<br>nei=0.0104</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted but we note that there is not a large increase in ser as more information is added – even for the most difficult setting, +style, the models make an error on less than 10% of the slots in a given mr, on average.  p19-1596 table_6 automatic semantic evaluation (higher is better for all but ser)."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.3733</td><td class="claim">But we note that there is not a large increase in SER as more information is added – even for the most difficult setting, +STYLE, the models make an error on less than 10% of the slots in a given MR, on average.</td><td class="caption"><div>Automatic semantic evaluation (higher is better for all but SER).</div><div class="meta"><br>P19-1596 / table_6 / sent 5</div></td><td class="score">support=0.1589<br>refute=0.5322<br>nei=0.3089</td><td></td><td></td></tr><tr data-bucket="refuted" data-search="refuted these results show that our ap method produces more correct answers at the top of the list than the baseline methods.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-refuted">refuted</span></td><td class="score">0.0388</td><td class="claim">These results show that our AP method produces more correct answers at the top of the list than the baseline methods.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 8</div></td><td class="score">support=0.4020<br>refute=0.4408<br>nei=0.1571</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei table 6 summarizes the results for different systems, including the baseline cnn model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted da information (posterior probabilities) is combined with the current sentence&#x27;s cnn-based representation; (b) applying a blstm on top of the sentence cnn representation; (c) hierarchical cnn that combines the current sentence&#x27;s cnn representation with its neighbors; (d) sequence decoding by combining cnn posteriors with da transition scores.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Table 6 summarizes the results for different systems, including the baseline CNN model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted DA information (posterior probabilities) is combined with the current sentence&#x27;s CNN-based representation; (b) applying a BLSTM on top of the sentence CNN representation; (c) hierarchical CNN that combines the current sentence&#x27;s CNN representation with its neighbors; (d) sequence decoding by combining CNN posteriors with DA transition scores.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 0</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei in table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.  d18-1229 table_1 we show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. this is shown for the last round of bootstrapping (c.f. fig. 3a) and extrapolation (c.f. fig. 3b)."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">In Table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.</td><td class="caption"><div>We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).</div><div class="meta"><br>D18-1229 / table_1 / sent 0</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei compared to the best systems in semeval challenge, min achieves 3.0% and 1.1% absolute gains on d1 and d2 respectively.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Compared to the best systems in SemEval challenge, MIN achieves 3.0% and 1.1% absolute gains on D1 and D2 respectively.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei the recall performance in table 1 also confirms the performance gains of the scatterplot.  d18-1229 table_1 we show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. this is shown for the last round of bootstrapping (c.f. fig. 3a) and extrapolation (c.f. fig. 3b)."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">The recall performance in Table 1 also confirms the performance gains of the scatterplot.</td><td class="caption"><div>We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).</div><div class="meta"><br>D18-1229 / table_1 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei we select 878 out of the 1047 testing questions (used in the a/b test) by removing questions relevant to our chatbot, and use it to test the public one.  p17-2079 table_3 comparison with another chatbot."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">We select 878 out of the 1047 testing questions (used in the A/B test) by removing questions relevant to our chatbot, and use it to test the public one.</td><td class="caption"><div>Comparison with another chatbot.</div><div class="meta"><br>P17-2079 / table_3 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei besides, our min outperforms wdemb, a strong crf-based system benefiting from several kinds of useful word embeddings, by 2.1% on d1.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Besides, our MIN outperforms WDEmb, a strong CRF-based system benefiting from several kinds of useful word embeddings, by 2.1% on D1.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei we show results for 5 variations of the algorithm: ap uses algorithm 1, and the others use algorithm 2 with different activity similarity measures: ap+al (location profile similarity), ap+ao (overlap similarity), ap+ae (embedding similarity), and ap+al+e (location profiles plus embeddings).  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">We show results for 5 variations of the algorithm: AP uses Algorithm 1, and the others use Algorithm 2 with different Activity Similarity measures: AP+AL (location profile similarity), AP+AO (overlap similarity), AP+AE (embedding similarity), and AP+AL+E (location profiles plus embeddings).</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei for classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, pg-net performs worse than lead-3.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">For classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, PG-net performs worse than lead-3.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei with memory interactions and consideration of sentimental sentence, our min boosts the performance of vanilla bi-directional lstm (+2.0% and +1.7% respectively).  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">With memory interactions and consideration of sentimental sentence, our MIN boosts the performance of vanilla bi-directional LSTM (+2.0% and +1.7% respectively).</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei it validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">It validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.  p19-1343 table_6 hate speech results (3-fold cross val.). in most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). green: best performance in each column."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.</td><td class="caption"><div>Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.</div><div class="meta"><br>P19-1343 / table_6 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 4</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.  d19-1399 table_8 f1 performance of dglstm-crf with predicted dependencies against the best performing bilstm-crf. †: las is label attachment score which is the metric for dependency evaluation."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.</td><td class="caption"><div>F1 performance of DGLSTM-CRF with predicted dependencies against the best performing BiLSTM-CRF. †: LAS is label attachment score which is the metric for dependency evaluation.</div><div class="meta"><br>D19-1399 / table_8 / sent 5</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei to further study the impact of each element in min, we conduct ablation experiments.  d17-1310 table_2 experiment results"><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">To further study the impact of each element in MIN, we conduct ablation experiments.</td><td class="caption"><div>Experiment results</div><div class="meta"><br>D17-1310 / table_2 / sent 6</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei for these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">For these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 7</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei from the results, we can see the positive effect when context information is used.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">From the results, we can see the positive effect when context information is used.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei the first 3 rows show the results for the baseline systems, and the remaining rows show results for our activity profile (ap) semi-supervised learning method.  p18-1120 table_3 scores for mrr and top k results."><td><span class="pill pill-nei">nei</span></td><td class="score">0.0000</td><td class="claim">The first 3 rows show the results for the baseline systems, and the remaining rows show results for our Activity Profile (AP) semi-supervised learning method.</td><td class="caption"><div>Scores for MRR and Top k results.</div><div class="meta"><br>P18-1120 / table_3 / sent 1</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei comparing representing context information via the da labels of the previous utterances vs using the hierarchical cnn or rnn model, we see there is not much difference.  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">0.0000</td><td class="claim">Comparing representing context information via the DA labels of the previous utterances vs using the hierarchical CNN or RNN model, we see there is not much difference.</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of rouge, and the decoder attention distributions are more amenable to extraction than encoder attention scores.  p19-1630 table_1 quantitative comparison (rouge 1, 2 and l) of models on aspect-specific summarization."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">Unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of ROUGE, and the decoder attention distributions are more amenable to extraction than encoder attention scores.</td><td class="caption"><div>Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.</div><div class="meta"><br>P19-1630 / table_1 / sent 3</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr><tr data-bucket="nei" data-search="nei all the methods using context yield significant improvement over the baseline (statistically significant based on t-test).  d17-1231 table_6 da classification results (%) using different systems."><td><span class="pill pill-nei">nei</span></td><td class="score">-0.0000</td><td class="claim">All the methods using context yield significant improvement over the baseline (statistically significant based on t-test).</td><td class="caption"><div>DA classification results (%) using different systems.</div><div class="meta"><br>D17-1231 / table_6 / sent 2</div></td><td class="score">support=0.0000<br>refute=0.0000<br>nei=1.0000</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="empty" style="display:none;">No rows match the current filter.</div>
+    
+    </section>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.panel');
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach((btn) => btn.classList.remove('active'));
+        panels.forEach((panel) => panel.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.dataset.target).classList.add('active');
+        applyFilters();
+      });
+    });
+
+    const searchBox = document.getElementById('searchBox');
+    const bucketFilter = document.getElementById('bucketFilter');
+    searchBox.addEventListener('input', applyFilters);
+    bucketFilter.addEventListener('change', applyFilters);
+
+    function applyFilters() {
+      const activePanel = document.querySelector('.panel.active');
+      if (!activePanel) return;
+      const query = searchBox.value.trim().toLowerCase();
+      const bucket = bucketFilter.value;
+      const rows = activePanel.querySelectorAll('tbody tr[data-bucket]');
+      let visible = 0;
+      rows.forEach((row) => {
+        const haystack = row.dataset.search;
+        const rowBucket = row.dataset.bucket;
+        const matchesQuery = !query || haystack.includes(query);
+        const matchesBucket = bucket === 'all' || rowBucket === bucket;
+        const show = matchesQuery && matchesBucket;
+        row.style.display = show ? '' : 'none';
+        if (show) visible += 1;
+      });
+      const empty = activePanel.querySelector('.empty');
+      if (empty) {
+        empty.style.display = visible === 0 ? 'block' : 'none';
+      }
+    }
+
+    applyFilters();
+  </script>
+</body>
+</html>

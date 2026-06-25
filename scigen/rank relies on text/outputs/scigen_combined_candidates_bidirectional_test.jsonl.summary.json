@@ -1,0 +1,31 @@
+{
+  "records": 1038,
+  "average_candidates": 35.8748,
+  "average_internal_candidates": 29.8487,
+  "average_external_candidates": 10.9672,
+  "records_without_candidates": 1,
+  "table_only_avg_text_support_at_k": 0.060938,
+  "reranked_avg_text_support_at_k": 0.075639,
+  "reranked_avg_text_to_candidate_salience_at_k": 0.075942,
+  "reranked_avg_text_to_candidate_coverage_at_k": 0.030647,
+  "top1_changed_rate": 0.583815,
+  "candidate_source": "combined",
+  "candidate_dir": "text_aware_rerank_baseline/external_candidates",
+  "external_candidate_stats": {
+    "candidate_dir": "text_aware_rerank_baseline/external_candidates",
+    "files": 4,
+    "rows": 4152,
+    "records_with_candidates": 938,
+    "candidates": 11482,
+    "candidate_keys": {
+      "insights": 11482
+    },
+    "deduped_candidates": 11384
+  },
+  "rerank_mode": "bidirectional",
+  "table_weight": 0.35,
+  "text_weight": 0.65,
+  "candidate_to_text_weight": 0.45,
+  "text_to_candidate_weight": 0.2,
+  "output": "text_aware_rerank_baseline/outputs/scigen_combined_candidates_bidirectional_test.jsonl"
+}

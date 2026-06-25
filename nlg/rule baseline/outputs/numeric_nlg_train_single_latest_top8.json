@@ -1,0 +1,2105 @@
+{
+  "dataset": "numericNLG",
+  "split": "train",
+  "header_level": "single",
+  "rule_version": "latest",
+  "top_k": 8,
+  "total_split_tables": 1084,
+  "candidate_tables": 121,
+  "requested": 121,
+  "evaluated": 116,
+  "failed": 5,
+  "parse_rate": 0.9586776859504132,
+  "average_coverage_score": 0.6966,
+  "average_generated_insights": 52.82,
+  "average_ranked_insights": 7.96,
+  "average_missing_insights": 3.03,
+  "average_potential_text_errors": 0.17,
+  "tables_with_lower_is_better_metrics": 6,
+  "caption_signal_counts": {
+    "comparison": 98,
+    "extremum_high": 14,
+    "trend_up": 47,
+    "relationship": 12,
+    "stable": 11,
+    "proportion": 8,
+    "trend_down": 8,
+    "extremum_low": 3
+  },
+  "unmatched_signal_counts": {
+    "trend_up": 29,
+    "relationship": 10,
+    "stable": 10,
+    "trend_down": 8,
+    "proportion": 7,
+    "extremum_low": 3,
+    "extremum_high": 1
+  },
+  "coverage_buckets": {
+    "full": 59,
+    "partial": 37,
+    "none": 13,
+    "low": 7
+  },
+  "examples": [
+    {
+      "table_id_paper": "D16-1011table_4",
+      "paper_id": "D16-1011",
+      "table_id": "table_4",
+      "rule_version": "latest",
+      "caption": "Comparison between rationale models (middle and bottom rows) and the baselines using full title or body (top row).",
+      "description": "Results. Table 4 presents the results of our rationale model. We explore a range of hyper-parameter values. We include two runs for each version. The first one achieves the highest MAP on the development set, The second run is selected to compare the models when they use roughly 10% of question text (7 words on average). We also show the results of different runs in Figure 6. The rationales achieve the MAP up to 56.5%, getting close to using the titles. The models also outperform the baseline of using the noisy question bodies, indicating the the modelsâ€™ capacity of extracting short but important fragments.",
+      "table": {
+        "row_label_name": "Full title",
+        "row_labels": [
+          "Full title",
+          "Full body",
+          "Independent",
+          "Independent",
+          "Dependent",
+          "Dependent"
+        ],
+        "columns": [
+          "MAP (dev)",
+          "MAP (test)",
+          "% words"
+        ],
+        "values": [
+          [
+            56.5,
+            60.0,
+            10.1
+          ],
+          [
+            54.2,
+            53.0,
+            89.9
+          ],
+          [
+            55.7,
+            53.6,
+            9.7
+          ],
+          [
+            56.3,
+            52.6,
+            19.7
+          ],
+          [
+            56.1,
+            54.6,
+            11.6
+          ],
+          [
+            56.5,
+            55.6,
+            32.8
+          ]
+        ]
+      },
+      "metric_types": [
+        "MAP (dev)",
+        "MAP (test)",
+        "% words"
+      ],
+      "lower_is_better_columns": [],
+      "target_entities": [
+        "Independent",
+        "Dependent"
+      ],
+      "caption_signals": [
+        "comparison",
+        "extremum_high"
+      ],
+      "generated_insight_count": 45,
+      "ranked_insight_count": 8,
+      "top_k": 8,
+      "matched_insight_count": 8,
+      "coverage_score": 1.0,
+      "covered_signals": [
+        "comparison",
+        "extremum_high"
+      ],
+      "unmatched_signals": [],
+      "matches": [
+        {
+          "score": 0.414,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.12,
+          "number_overlap": 0.4,
+          "precision_label": "strong",
+          "insight": {
+            "type": "comparison",
+            "subject": "MAP (dev) vs % words",
+            "condition": "across rows",
+            "claim": "MAP (dev) outperforms % words on 5/6 rows.",
+            "evidence": [
+              {
+                "row": "Full title",
+                "column": "MAP (dev)",
+                "value": 56.5
+              },
+              {
+                "row": "Full title",
+                "column": "% words",
+                "value": 10.1
+              },
+              {
+                "row": "Independent",
+                "column": "MAP (dev)",
+                "value": 55.7
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 9.7
+              },
+              {
+                "row": "Independent",
+                "column": "MAP (dev)",
+                "value": 56.3
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 19.7
+              },
+              {
+                "row": "Dependent",
+                "column": "MAP (dev)",
+                "value": 56.1
+              },
+              {
+                "row": "Dependent",
+                "column": "% words",
+                "value": 11.6
+              },
+              {
+                "row": "Dependent",
+                "column": "MAP (dev)",
+                "value": 56.5
+              },
+              {
+                "row": "Dependent",
+                "column": "% words",
+                "value": 32.8
+              }
+            ],
+            "axis": "column",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "MAP (dev)",
+              "loser": "% words",
+              "win_count": 5,
+              "total_count": 6,
+              "average_effective_margin": 26.9167,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.6833,
+              "importance": 26.9167
+            }
+          }
+        },
+        {
+          "score": 0.394,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.12,
+          "number_overlap": 0.2,
+          "precision_label": "strong",
+          "insight": {
+            "type": "comparison",
+            "subject": "MAP (test) vs % words",
+            "condition": "across rows",
+            "claim": "MAP (test) outperforms % words on 5/6 rows.",
+            "evidence": [
+              {
+                "row": "Full title",
+                "column": "MAP (test)",
+                "value": 60.0
+              },
+              {
+                "row": "Full title",
+                "column": "% words",
+                "value": 10.1
+              },
+              {
+                "row": "Independent",
+                "column": "MAP (test)",
+                "value": 53.6
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 9.7
+              },
+              {
+                "row": "Independent",
+                "column": "MAP (test)",
+                "value": 52.6
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 19.7
+              },
+              {
+                "row": "Dependent",
+                "column": "MAP (test)",
+                "value": 54.6
+              },
+              {
+                "row": "Dependent",
+                "column": "% words",
+                "value": 11.6
+              },
+              {
+                "row": "Dependent",
+                "column": "MAP (test)",
+                "value": 55.6
+              },
+              {
+                "row": "Dependent",
+                "column": "% words",
+                "value": 32.8
+              }
+            ],
+            "axis": "column",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "MAP (test)",
+              "loser": "% words",
+              "win_count": 5,
+              "total_count": 6,
+              "average_effective_margin": 25.9333,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.6833,
+              "importance": 25.9333
+            }
+          }
+        },
+        {
+          "score": 0.3864,
+          "covered_signals": [
+            "extremum_high"
+          ],
+          "token_overlap": 0.1818,
+          "number_overlap": 0.0,
+          "precision_label": "strong",
+          "insight": {
+            "type": "extremum",
+            "subject": "MAP (dev)",
+            "condition": "Independent",
+            "claim": "MAP (dev) achieves the best value result on Independent, with the highest value of 55.7.",
+            "evidence": [
+              {
+                "row": "Independent",
+                "column": "MAP (dev)",
+                "value": 55.7
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 9.7
+              }
+            ],
+            "axis": "column",
+            "scope": "single_metric",
+            "operation": "argmax",
+            "details": {
+              "insight_subtype": "metric_best",
+              "metric": "value",
+              "best_entity": "MAP (dev)",
+              "worst_entity": "% words",
+              "metric_direction": "higher_is_better",
+              "margin_to_worst": 46.0,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 46.0
+            }
+          }
+        },
+        {
+          "score": 0.3864,
+          "covered_signals": [
+            "extremum_high"
+          ],
+          "token_overlap": 0.1818,
+          "number_overlap": 0.0,
+          "precision_label": "strong",
+          "insight": {
+            "type": "extremum",
+            "subject": "MAP (dev)",
+            "condition": "Dependent",
+            "claim": "MAP (dev) achieves the best value result on Dependent, with the highest value of 56.1.",
+            "evidence": [
+              {
+                "row": "Dependent",
+                "column": "MAP (dev)",
+                "value": 56.1
+              },
+              {
+                "row": "Dependent",
+                "column": "% words",
+                "value": 11.6
+              }
+            ],
+            "axis": "column",
+            "scope": "single_metric",
+            "operation": "argmax",
+            "details": {
+              "insight_subtype": "metric_best",
+              "metric": "value",
+              "best_entity": "MAP (dev)",
+              "worst_entity": "% words",
+              "metric_direction": "higher_is_better",
+              "margin_to_worst": 44.5,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 44.5
+            }
+          }
+        },
+        {
+          "score": 0.3864,
+          "covered_signals": [
+            "extremum_high"
+          ],
+          "token_overlap": 0.1818,
+          "number_overlap": 0.0,
+          "precision_label": "strong",
+          "insight": {
+            "type": "extremum",
+            "subject": "MAP (dev)",
+            "condition": "Independent",
+            "claim": "MAP (dev) achieves the best value result on Independent, with the highest value of 56.3.",
+            "evidence": [
+              {
+                "row": "Independent",
+                "column": "MAP (dev)",
+                "value": 56.3
+              },
+              {
+                "row": "Independent",
+                "column": "% words",
+                "value": 19.7
+              }
+            ],
+            "axis": "column",
+            "scope": "single_metric",
+            "operation": "argmax",
+            "details": {
+              "insight_subtype": "metric_best",
+              "metric": "value",
+              "best_entity": "MAP (dev)",
+              "worst_entity": "% words",
+              "metric_direction": "higher_is_better",
+              "margin_to_worst": 36.6,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 36.6
+            }
+          }
+        }
+      ],
+      "text_correction": {
+        "supported_insight_count": 8,
+        "missing_insight_count": 0,
+        "potential_text_error_count": 0,
+        "supported_insights": [
+          {
+            "score": 0.414,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.12,
+            "number_overlap": 0.4,
+            "precision_label": "strong",
+            "insight": {
+              "type": "comparison",
+              "subject": "MAP (dev) vs % words",
+              "condition": "across rows",
+              "claim": "MAP (dev) outperforms % words on 5/6 rows.",
+              "evidence": [
+                {
+                  "row": "Full title",
+                  "column": "MAP (dev)",
+                  "value": 56.5
+                },
+                {
+                  "row": "Full title",
+                  "column": "% words",
+                  "value": 10.1
+                },
+                {
+                  "row": "Independent",
+                  "column": "MAP (dev)",
+                  "value": 55.7
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 9.7
+                },
+                {
+                  "row": "Independent",
+                  "column": "MAP (dev)",
+                  "value": 56.3
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 19.7
+                },
+                {
+                  "row": "Dependent",
+                  "column": "MAP (dev)",
+                  "value": 56.1
+                },
+                {
+                  "row": "Dependent",
+                  "column": "% words",
+                  "value": 11.6
+                },
+                {
+                  "row": "Dependent",
+                  "column": "MAP (dev)",
+                  "value": 56.5
+                },
+                {
+                  "row": "Dependent",
+                  "column": "% words",
+                  "value": 32.8
+                }
+              ],
+              "axis": "column",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "MAP (dev)",
+                "loser": "% words",
+                "win_count": 5,
+                "total_count": 6,
+                "average_effective_margin": 26.9167,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.6833,
+                "importance": 26.9167
+              }
+            }
+          },
+          {
+            "score": 0.394,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.12,
+            "number_overlap": 0.2,
+            "precision_label": "strong",
+            "insight": {
+              "type": "comparison",
+              "subject": "MAP (test) vs % words",
+              "condition": "across rows",
+              "claim": "MAP (test) outperforms % words on 5/6 rows.",
+              "evidence": [
+                {
+                  "row": "Full title",
+                  "column": "MAP (test)",
+                  "value": 60.0
+                },
+                {
+                  "row": "Full title",
+                  "column": "% words",
+                  "value": 10.1
+                },
+                {
+                  "row": "Independent",
+                  "column": "MAP (test)",
+                  "value": 53.6
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 9.7
+                },
+                {
+                  "row": "Independent",
+                  "column": "MAP (test)",
+                  "value": 52.6
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 19.7
+                },
+                {
+                  "row": "Dependent",
+                  "column": "MAP (test)",
+                  "value": 54.6
+                },
+                {
+                  "row": "Dependent",
+                  "column": "% words",
+                  "value": 11.6
+                },
+                {
+                  "row": "Dependent",
+                  "column": "MAP (test)",
+                  "value": 55.6
+                },
+                {
+                  "row": "Dependent",
+                  "column": "% words",
+                  "value": 32.8
+                }
+              ],
+              "axis": "column",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "MAP (test)",
+                "loser": "% words",
+                "win_count": 5,
+                "total_count": 6,
+                "average_effective_margin": 25.9333,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.6833,
+                "importance": 25.9333
+              }
+            }
+          },
+          {
+            "score": 0.3864,
+            "covered_signals": [
+              "extremum_high"
+            ],
+            "token_overlap": 0.1818,
+            "number_overlap": 0.0,
+            "precision_label": "strong",
+            "insight": {
+              "type": "extremum",
+              "subject": "MAP (dev)",
+              "condition": "Independent",
+              "claim": "MAP (dev) achieves the best value result on Independent, with the highest value of 55.7.",
+              "evidence": [
+                {
+                  "row": "Independent",
+                  "column": "MAP (dev)",
+                  "value": 55.7
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 9.7
+                }
+              ],
+              "axis": "column",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "value",
+                "best_entity": "MAP (dev)",
+                "worst_entity": "% words",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 46.0,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 46.0
+              }
+            }
+          },
+          {
+            "score": 0.3864,
+            "covered_signals": [
+              "extremum_high"
+            ],
+            "token_overlap": 0.1818,
+            "number_overlap": 0.0,
+            "precision_label": "strong",
+            "insight": {
+              "type": "extremum",
+              "subject": "MAP (dev)",
+              "condition": "Dependent",
+              "claim": "MAP (dev) achieves the best value result on Dependent, with the highest value of 56.1.",
+              "evidence": [
+                {
+                  "row": "Dependent",
+                  "column": "MAP (dev)",
+                  "value": 56.1
+                },
+                {
+                  "row": "Dependent",
+                  "column": "% words",
+                  "value": 11.6
+                }
+              ],
+              "axis": "column",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "value",
+                "best_entity": "MAP (dev)",
+                "worst_entity": "% words",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 44.5,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 44.5
+              }
+            }
+          },
+          {
+            "score": 0.3864,
+            "covered_signals": [
+              "extremum_high"
+            ],
+            "token_overlap": 0.1818,
+            "number_overlap": 0.0,
+            "precision_label": "strong",
+            "insight": {
+              "type": "extremum",
+              "subject": "MAP (dev)",
+              "condition": "Independent",
+              "claim": "MAP (dev) achieves the best value result on Independent, with the highest value of 56.3.",
+              "evidence": [
+                {
+                  "row": "Independent",
+                  "column": "MAP (dev)",
+                  "value": 56.3
+                },
+                {
+                  "row": "Independent",
+                  "column": "% words",
+                  "value": 19.7
+                }
+              ],
+              "axis": "column",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "value",
+                "best_entity": "MAP (dev)",
+                "worst_entity": "% words",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 36.6,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 36.6
+              }
+            }
+          }
+        ],
+        "missing_insights": [],
+        "potential_text_errors": []
+      }
+    },
+    {
+      "table_id_paper": "D16-1080table_4",
+      "paper_id": "D16-1080",
+      "table_id": "table_4",
+      "rule_version": "latest",
+      "caption": "Effects of embedding on performance. WEU, WENU, REU and RENU represent word embedding update, word embedding without update, random embedding update and random embedding without update respectively.",
+      "description": "Table 4 lists the effects of word embedding. We can see that the performance when updating the word embedding is better than when not updating, and the performance of word embedding is a little better than random word embedding. The main reason is that the vocabulary size is 147,377, but the number of words from tweets that exist in the word embedding trained on the Google News dataset is just 35,133. This means that 76.2% of the words are missing. This also confirms that the proposed jointlayer RNN is more suitable for keyphrase extraction on Twitter.",
+      "table": {
+        "row_label_name": "WEU",
+        "row_labels": [
+          "WEU",
+          "WENU",
+          "REU",
+          "RENU"
+        ],
+        "columns": [
+          "P",
+          "R",
+          "F1"
+        ],
+        "values": [
+          [
+            80.74,
+            81.19,
+            80.97
+          ],
+          [
+            74.1,
+            69.3,
+            71.62
+          ],
+          [
+            79.01,
+            79.75,
+            79.38
+          ],
+          [
+            78.16,
+            64.55,
+            70.7
+          ]
+        ]
+      },
+      "metric_types": [
+        "P",
+        "R",
+        "F1"
+      ],
+      "lower_is_better_columns": [],
+      "target_entities": [
+        "WEU"
+      ],
+      "caption_signals": [
+        "comparison"
+      ],
+      "generated_insight_count": 30,
+      "ranked_insight_count": 8,
+      "top_k": 8,
+      "matched_insight_count": 4,
+      "coverage_score": 1.0,
+      "covered_signals": [
+        "comparison"
+      ],
+      "unmatched_signals": [],
+      "matches": [
+        {
+          "score": 0.7,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.0,
+          "number_overlap": 0.0,
+          "precision_label": "medium",
+          "insight": {
+            "type": "comparison",
+            "subject": "WEU vs RENU",
+            "condition": "across metrics",
+            "claim": "WEU outperforms RENU on 3/3 metrics.",
+            "evidence": [
+              {
+                "row": "WEU",
+                "column": "P",
+                "value": 80.74
+              },
+              {
+                "row": "RENU",
+                "column": "P",
+                "value": 78.16
+              },
+              {
+                "row": "WEU",
+                "column": "R",
+                "value": 81.19
+              },
+              {
+                "row": "RENU",
+                "column": "R",
+                "value": 64.55
+              },
+              {
+                "row": "WEU",
+                "column": "F1",
+                "value": 80.97
+              },
+              {
+                "row": "RENU",
+                "column": "F1",
+                "value": 70.7
+              }
+            ],
+            "axis": "row",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "WEU",
+              "loser": "RENU",
+              "win_count": 3,
+              "total_count": 3,
+              "average_effective_margin": 9.83,
+              "secondary_axis": false
+            },
+            "verification": "supported",
+            "score": {
+              "support": 1.0,
+              "importance": 9.83
+            }
+          }
+        },
+        {
+          "score": 0.7,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.0,
+          "number_overlap": 0.0,
+          "precision_label": "medium",
+          "insight": {
+            "type": "comparison",
+            "subject": "WEU vs WENU",
+            "condition": "across metrics",
+            "claim": "WEU outperforms WENU on 3/3 metrics.",
+            "evidence": [
+              {
+                "row": "WEU",
+                "column": "P",
+                "value": 80.74
+              },
+              {
+                "row": "WENU",
+                "column": "P",
+                "value": 74.1
+              },
+              {
+                "row": "WEU",
+                "column": "R",
+                "value": 81.19
+              },
+              {
+                "row": "WENU",
+                "column": "R",
+                "value": 69.3
+              },
+              {
+                "row": "WEU",
+                "column": "F1",
+                "value": 80.97
+              },
+              {
+                "row": "WENU",
+                "column": "F1",
+                "value": 71.62
+              }
+            ],
+            "axis": "row",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "WEU",
+              "loser": "WENU",
+              "win_count": 3,
+              "total_count": 3,
+              "average_effective_margin": 9.2933,
+              "secondary_axis": false
+            },
+            "verification": "supported",
+            "score": {
+              "support": 1.0,
+              "importance": 9.2933
+            }
+          }
+        },
+        {
+          "score": 0.7,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.0,
+          "number_overlap": 0.0,
+          "precision_label": "medium",
+          "insight": {
+            "type": "comparison",
+            "subject": "REU vs RENU",
+            "condition": "across metrics",
+            "claim": "REU outperforms RENU on 3/3 metrics.",
+            "evidence": [
+              {
+                "row": "REU",
+                "column": "P",
+                "value": 79.01
+              },
+              {
+                "row": "RENU",
+                "column": "P",
+                "value": 78.16
+              },
+              {
+                "row": "REU",
+                "column": "R",
+                "value": 79.75
+              },
+              {
+                "row": "RENU",
+                "column": "R",
+                "value": 64.55
+              },
+              {
+                "row": "REU",
+                "column": "F1",
+                "value": 79.38
+              },
+              {
+                "row": "RENU",
+                "column": "F1",
+                "value": 70.7
+              }
+            ],
+            "axis": "row",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "REU",
+              "loser": "RENU",
+              "win_count": 3,
+              "total_count": 3,
+              "average_effective_margin": 8.2433,
+              "secondary_axis": false
+            },
+            "verification": "supported",
+            "score": {
+              "support": 1.0,
+              "importance": 8.2433
+            }
+          }
+        },
+        {
+          "score": 0.7,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.0,
+          "number_overlap": 0.0,
+          "precision_label": "medium",
+          "insight": {
+            "type": "comparison",
+            "subject": "REU vs WENU",
+            "condition": "across metrics",
+            "claim": "REU outperforms WENU on 3/3 metrics.",
+            "evidence": [
+              {
+                "row": "REU",
+                "column": "P",
+                "value": 79.01
+              },
+              {
+                "row": "WENU",
+                "column": "P",
+                "value": 74.1
+              },
+              {
+                "row": "REU",
+                "column": "R",
+                "value": 79.75
+              },
+              {
+                "row": "WENU",
+                "column": "R",
+                "value": 69.3
+              },
+              {
+                "row": "REU",
+                "column": "F1",
+                "value": 79.38
+              },
+              {
+                "row": "WENU",
+                "column": "F1",
+                "value": 71.62
+              }
+            ],
+            "axis": "row",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "REU",
+              "loser": "WENU",
+              "win_count": 3,
+              "total_count": 3,
+              "average_effective_margin": 7.7067,
+              "secondary_axis": false
+            },
+            "verification": "supported",
+            "score": {
+              "support": 1.0,
+              "importance": 7.7067
+            }
+          }
+        }
+      ],
+      "text_correction": {
+        "supported_insight_count": 4,
+        "missing_insight_count": 4,
+        "potential_text_error_count": 0,
+        "supported_insights": [
+          {
+            "score": 0.7,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.0,
+            "number_overlap": 0.0,
+            "precision_label": "medium",
+            "insight": {
+              "type": "comparison",
+              "subject": "WEU vs RENU",
+              "condition": "across metrics",
+              "claim": "WEU outperforms RENU on 3/3 metrics.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "P",
+                  "value": 80.74
+                },
+                {
+                  "row": "RENU",
+                  "column": "P",
+                  "value": 78.16
+                },
+                {
+                  "row": "WEU",
+                  "column": "R",
+                  "value": 81.19
+                },
+                {
+                  "row": "RENU",
+                  "column": "R",
+                  "value": 64.55
+                },
+                {
+                  "row": "WEU",
+                  "column": "F1",
+                  "value": 80.97
+                },
+                {
+                  "row": "RENU",
+                  "column": "F1",
+                  "value": 70.7
+                }
+              ],
+              "axis": "row",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "WEU",
+                "loser": "RENU",
+                "win_count": 3,
+                "total_count": 3,
+                "average_effective_margin": 9.83,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 9.83
+              }
+            }
+          },
+          {
+            "score": 0.7,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.0,
+            "number_overlap": 0.0,
+            "precision_label": "medium",
+            "insight": {
+              "type": "comparison",
+              "subject": "WEU vs WENU",
+              "condition": "across metrics",
+              "claim": "WEU outperforms WENU on 3/3 metrics.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "P",
+                  "value": 80.74
+                },
+                {
+                  "row": "WENU",
+                  "column": "P",
+                  "value": 74.1
+                },
+                {
+                  "row": "WEU",
+                  "column": "R",
+                  "value": 81.19
+                },
+                {
+                  "row": "WENU",
+                  "column": "R",
+                  "value": 69.3
+                },
+                {
+                  "row": "WEU",
+                  "column": "F1",
+                  "value": 80.97
+                },
+                {
+                  "row": "WENU",
+                  "column": "F1",
+                  "value": 71.62
+                }
+              ],
+              "axis": "row",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "WEU",
+                "loser": "WENU",
+                "win_count": 3,
+                "total_count": 3,
+                "average_effective_margin": 9.2933,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 9.2933
+              }
+            }
+          },
+          {
+            "score": 0.7,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.0,
+            "number_overlap": 0.0,
+            "precision_label": "medium",
+            "insight": {
+              "type": "comparison",
+              "subject": "REU vs RENU",
+              "condition": "across metrics",
+              "claim": "REU outperforms RENU on 3/3 metrics.",
+              "evidence": [
+                {
+                  "row": "REU",
+                  "column": "P",
+                  "value": 79.01
+                },
+                {
+                  "row": "RENU",
+                  "column": "P",
+                  "value": 78.16
+                },
+                {
+                  "row": "REU",
+                  "column": "R",
+                  "value": 79.75
+                },
+                {
+                  "row": "RENU",
+                  "column": "R",
+                  "value": 64.55
+                },
+                {
+                  "row": "REU",
+                  "column": "F1",
+                  "value": 79.38
+                },
+                {
+                  "row": "RENU",
+                  "column": "F1",
+                  "value": 70.7
+                }
+              ],
+              "axis": "row",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "REU",
+                "loser": "RENU",
+                "win_count": 3,
+                "total_count": 3,
+                "average_effective_margin": 8.2433,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 8.2433
+              }
+            }
+          },
+          {
+            "score": 0.7,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.0,
+            "number_overlap": 0.0,
+            "precision_label": "medium",
+            "insight": {
+              "type": "comparison",
+              "subject": "REU vs WENU",
+              "condition": "across metrics",
+              "claim": "REU outperforms WENU on 3/3 metrics.",
+              "evidence": [
+                {
+                  "row": "REU",
+                  "column": "P",
+                  "value": 79.01
+                },
+                {
+                  "row": "WENU",
+                  "column": "P",
+                  "value": 74.1
+                },
+                {
+                  "row": "REU",
+                  "column": "R",
+                  "value": 79.75
+                },
+                {
+                  "row": "WENU",
+                  "column": "R",
+                  "value": 69.3
+                },
+                {
+                  "row": "REU",
+                  "column": "F1",
+                  "value": 79.38
+                },
+                {
+                  "row": "WENU",
+                  "column": "F1",
+                  "value": 71.62
+                }
+              ],
+              "axis": "row",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "REU",
+                "loser": "WENU",
+                "win_count": 3,
+                "total_count": 3,
+                "average_effective_margin": 7.7067,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 7.7067
+              }
+            }
+          }
+        ],
+        "missing_insights": [
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "WEU is the best method, ranking best on 3/3 metrics.",
+            "insight": {
+              "type": "extremum",
+              "subject": "WEU",
+              "condition": "across metrics",
+              "claim": "WEU is the best method, ranking best on 3/3 metrics.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "P",
+                  "value": 80.74
+                },
+                {
+                  "row": "WEU",
+                  "column": "R",
+                  "value": 81.19
+                },
+                {
+                  "row": "WEU",
+                  "column": "F1",
+                  "value": 80.97
+                }
+              ],
+              "axis": "row",
+              "scope": "table",
+              "operation": "count_argbest",
+              "details": {
+                "insight_subtype": "overall_best",
+                "best_count": 3,
+                "total_count": 3,
+                "best_contexts": [
+                  "P",
+                  "R",
+                  "F1"
+                ],
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 3.0
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "WEU achieves the best R result on R, with the highest value of 81.19.",
+            "insight": {
+              "type": "extremum",
+              "subject": "WEU",
+              "condition": "R",
+              "claim": "WEU achieves the best R result on R, with the highest value of 81.19.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "R",
+                  "value": 81.19
+                },
+                {
+                  "row": "RENU",
+                  "column": "R",
+                  "value": 64.55
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "R",
+                "best_entity": "WEU",
+                "worst_entity": "RENU",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 16.64,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 16.64
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "WEU achieves the best F1 result on F1, with the highest value of 80.97.",
+            "insight": {
+              "type": "extremum",
+              "subject": "WEU",
+              "condition": "F1",
+              "claim": "WEU achieves the best F1 result on F1, with the highest value of 80.97.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "F1",
+                  "value": 80.97
+                },
+                {
+                  "row": "RENU",
+                  "column": "F1",
+                  "value": 70.7
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "F1",
+                "best_entity": "WEU",
+                "worst_entity": "RENU",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 10.27,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 10.27
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "WEU achieves the best P result on P, with the highest value of 80.74.",
+            "insight": {
+              "type": "extremum",
+              "subject": "WEU",
+              "condition": "P",
+              "claim": "WEU achieves the best P result on P, with the highest value of 80.74.",
+              "evidence": [
+                {
+                  "row": "WEU",
+                  "column": "P",
+                  "value": 80.74
+                },
+                {
+                  "row": "WENU",
+                  "column": "P",
+                  "value": 74.1
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "P",
+                "best_entity": "WEU",
+                "worst_entity": "WENU",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 6.64,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 6.64
+              }
+            }
+          }
+        ],
+        "potential_text_errors": []
+      }
+    },
+    {
+      "table_id_paper": "D16-1088table_4",
+      "paper_id": "D16-1088",
+      "table_id": "table_4",
+      "rule_version": "latest",
+      "caption": "Event Recognition Performance Before/After Incorporating Subevents",
+      "description": "4 Evaluation. We show that our acquired subevent phrases are useful to discover articles that describe the main event and therefore improve event detection performance. For direct comparisons, we tested our subevents using the same test data and the same evaluation setting as the previous multi-faceted event recognition research by (Huang and Riloff, 2013). Specifically, they have annotated 300 new articles that each contains a civil unrest keyword and only 101 of them are actually civil unrest stories. They have shown that the multi-faceted event recognition approach can accurately identify civil unrest documents, by identifying a sentence in the documents where two types of facet phrases or one facet phrase and a main event expression were matched. The first row of Table 4 shows their multi-faceted event recognition performance. We compared our learned subevent phrases with the event phrases learned by (Huang and Riloff, 2013) and found that 559 out of our 610 unique phrases are not in their list. We augmented their provided event phrase list with our newly acquired subevent phrases and then used the exactly same evaluation procedure. Essentially, we used a longer event phrase dictionary which is a combination of main event expressions resulted from the previous research by (Huang and Riloff, 2013) and our learned subevent phrases. Row 2 shows the event recognition performance using the extended event phrase list. We can see that after incorporating subevent phrases, additional 10% of civil unrest stories were discovered, with a small precision loss, the F1-score on event detection was improved by 3%.",
+      "table": {
+        "row_label_name": "(Huang and Riloff 2013)",
+        "row_labels": [
+          "(Huang and Riloff 2013)",
+          "+Subevents"
+        ],
+        "columns": [
+          "Recall",
+          "Precision",
+          "F1-score"
+        ],
+        "values": [
+          [
+            71.0,
+            88.0,
+            79.0
+          ],
+          [
+            81.0,
+            83.0,
+            82.0
+          ]
+        ]
+      },
+      "metric_types": [
+        "Recall",
+        "Precision",
+        "F1-score"
+      ],
+      "lower_is_better_columns": [],
+      "target_entities": [
+        "+Subevents"
+      ],
+      "caption_signals": [
+        "comparison",
+        "trend_up"
+      ],
+      "generated_insight_count": 17,
+      "ranked_insight_count": 8,
+      "top_k": 8,
+      "matched_insight_count": 3,
+      "coverage_score": 0.5,
+      "covered_signals": [
+        "comparison"
+      ],
+      "unmatched_signals": [
+        "trend_up"
+      ],
+      "matches": [
+        {
+          "score": 0.431,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.2174,
+          "number_overlap": 0.375,
+          "precision_label": "strong",
+          "insight": {
+            "type": "comparison",
+            "subject": "Precision vs F1-score",
+            "condition": "across rows",
+            "claim": "Precision outperforms F1-score on 2/2 rows.",
+            "evidence": [
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "Precision",
+                "value": 88.0
+              },
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "F1-score",
+                "value": 79.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "Precision",
+                "value": 83.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "F1-score",
+                "value": 82.0
+              }
+            ],
+            "axis": "column",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "Precision",
+              "loser": "F1-score",
+              "win_count": 2,
+              "total_count": 2,
+              "average_effective_margin": 5.0,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 5.0
+            }
+          }
+        },
+        {
+          "score": 0.4223,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.1739,
+          "number_overlap": 0.375,
+          "precision_label": "strong",
+          "insight": {
+            "type": "comparison",
+            "subject": "F1-score vs Recall",
+            "condition": "across rows",
+            "claim": "F1-score outperforms Recall on 2/2 rows.",
+            "evidence": [
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "F1-score",
+                "value": 79.0
+              },
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "Recall",
+                "value": 71.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "F1-score",
+                "value": 82.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "Recall",
+                "value": 81.0
+              }
+            ],
+            "axis": "column",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "F1-score",
+              "loser": "Recall",
+              "win_count": 2,
+              "total_count": 2,
+              "average_effective_margin": 4.5,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 4.5
+            }
+          }
+        },
+        {
+          "score": 0.4134,
+          "covered_signals": [
+            "comparison"
+          ],
+          "token_overlap": 0.1739,
+          "number_overlap": 0.2857,
+          "precision_label": "strong",
+          "insight": {
+            "type": "comparison",
+            "subject": "Precision vs Recall",
+            "condition": "across rows",
+            "claim": "Precision outperforms Recall on 2/2 rows.",
+            "evidence": [
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "Precision",
+                "value": 88.0
+              },
+              {
+                "row": "(Huang and Riloff 2013)",
+                "column": "Recall",
+                "value": 71.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "Precision",
+                "value": 83.0
+              },
+              {
+                "row": "+Subevents",
+                "column": "Recall",
+                "value": 81.0
+              }
+            ],
+            "axis": "column",
+            "scope": "paired_entities",
+            "operation": "directional_difference",
+            "details": {
+              "insight_subtype": "outperformance",
+              "winner": "Precision",
+              "loser": "Recall",
+              "win_count": 2,
+              "total_count": 2,
+              "average_effective_margin": 9.5,
+              "secondary_axis": true
+            },
+            "verification": "supported",
+            "score": {
+              "support": 0.85,
+              "importance": 9.5
+            }
+          }
+        }
+      ],
+      "text_correction": {
+        "supported_insight_count": 3,
+        "missing_insight_count": 5,
+        "potential_text_error_count": 0,
+        "supported_insights": [
+          {
+            "score": 0.431,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.2174,
+            "number_overlap": 0.375,
+            "precision_label": "strong",
+            "insight": {
+              "type": "comparison",
+              "subject": "Precision vs F1-score",
+              "condition": "across rows",
+              "claim": "Precision outperforms F1-score on 2/2 rows.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Precision",
+                  "value": 88.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "F1-score",
+                  "value": 79.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Precision",
+                  "value": 83.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "F1-score",
+                  "value": 82.0
+                }
+              ],
+              "axis": "column",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "Precision",
+                "loser": "F1-score",
+                "win_count": 2,
+                "total_count": 2,
+                "average_effective_margin": 5.0,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 5.0
+              }
+            }
+          },
+          {
+            "score": 0.4223,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.1739,
+            "number_overlap": 0.375,
+            "precision_label": "strong",
+            "insight": {
+              "type": "comparison",
+              "subject": "F1-score vs Recall",
+              "condition": "across rows",
+              "claim": "F1-score outperforms Recall on 2/2 rows.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "F1-score",
+                  "value": 79.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Recall",
+                  "value": 71.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "F1-score",
+                  "value": 82.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Recall",
+                  "value": 81.0
+                }
+              ],
+              "axis": "column",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "F1-score",
+                "loser": "Recall",
+                "win_count": 2,
+                "total_count": 2,
+                "average_effective_margin": 4.5,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 4.5
+              }
+            }
+          },
+          {
+            "score": 0.4134,
+            "covered_signals": [
+              "comparison"
+            ],
+            "token_overlap": 0.1739,
+            "number_overlap": 0.2857,
+            "precision_label": "strong",
+            "insight": {
+              "type": "comparison",
+              "subject": "Precision vs Recall",
+              "condition": "across rows",
+              "claim": "Precision outperforms Recall on 2/2 rows.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Precision",
+                  "value": 88.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Recall",
+                  "value": 71.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Precision",
+                  "value": 83.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Recall",
+                  "value": 81.0
+                }
+              ],
+              "axis": "column",
+              "scope": "paired_entities",
+              "operation": "directional_difference",
+              "details": {
+                "insight_subtype": "outperformance",
+                "winner": "Precision",
+                "loser": "Recall",
+                "win_count": 2,
+                "total_count": 2,
+                "average_effective_margin": 9.5,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 9.5
+              }
+            }
+          }
+        ],
+        "missing_insights": [
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "+Subevents achieves the best Recall result on Recall, with the highest value of 81.",
+            "insight": {
+              "type": "extremum",
+              "subject": "+Subevents",
+              "condition": "Recall",
+              "claim": "+Subevents achieves the best Recall result on Recall, with the highest value of 81.",
+              "evidence": [
+                {
+                  "row": "+Subevents",
+                  "column": "Recall",
+                  "value": 81.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Recall",
+                  "value": 71.0
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "Recall",
+                "best_entity": "+Subevents",
+                "worst_entity": "(Huang and Riloff 2013)",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 10.0,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 10.0
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "(Huang and Riloff 2013) achieves the best Precision result on Precision, with the highest value of 88.",
+            "insight": {
+              "type": "extremum",
+              "subject": "(Huang and Riloff 2013)",
+              "condition": "Precision",
+              "claim": "(Huang and Riloff 2013) achieves the best Precision result on Precision, with the highest value of 88.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Precision",
+                  "value": 88.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Precision",
+                  "value": 83.0
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "Precision",
+                "best_entity": "(Huang and Riloff 2013)",
+                "worst_entity": "+Subevents",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 5.0,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 5.0
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "Precision achieves the best value result on (Huang and Riloff 2013), with the highest value of 88.",
+            "insight": {
+              "type": "extremum",
+              "subject": "Precision",
+              "condition": "(Huang and Riloff 2013)",
+              "claim": "Precision achieves the best value result on (Huang and Riloff 2013), with the highest value of 88.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Precision",
+                  "value": 88.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Recall",
+                  "value": 71.0
+                }
+              ],
+              "axis": "column",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "value",
+                "best_entity": "Precision",
+                "worst_entity": "Recall",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 17.0,
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.85,
+                "importance": 17.0
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "+Subevents achieves the best F1-score result on F1-score, with the highest value of 82.",
+            "insight": {
+              "type": "extremum",
+              "subject": "+Subevents",
+              "condition": "F1-score",
+              "claim": "+Subevents achieves the best F1-score result on F1-score, with the highest value of 82.",
+              "evidence": [
+                {
+                  "row": "+Subevents",
+                  "column": "F1-score",
+                  "value": 82.0
+                },
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "F1-score",
+                  "value": 79.0
+                }
+              ],
+              "axis": "row",
+              "scope": "single_metric",
+              "operation": "argmax",
+              "details": {
+                "insight_subtype": "metric_best",
+                "metric": "F1-score",
+                "best_entity": "+Subevents",
+                "worst_entity": "(Huang and Riloff 2013)",
+                "metric_direction": "higher_is_better",
+                "margin_to_worst": 3.0,
+                "secondary_axis": false
+              },
+              "verification": "supported",
+              "score": {
+                "support": 1.0,
+                "importance": 3.0
+              }
+            }
+          },
+          {
+            "reason": "table_supported_insight_not_matched_in_text",
+            "suggested_correction": "Precision is the best system, ranking best on 2/2 rows.",
+            "insight": {
+              "type": "extremum",
+              "subject": "Precision",
+              "condition": "across rows",
+              "claim": "Precision is the best system, ranking best on 2/2 rows.",
+              "evidence": [
+                {
+                  "row": "(Huang and Riloff 2013)",
+                  "column": "Precision",
+                  "value": 88.0
+                },
+                {
+                  "row": "+Subevents",
+                  "column": "Precision",
+                  "value": 83.0
+                }
+              ],
+              "axis": "column",
+              "scope": "table",
+              "operation": "count_argbest",
+              "details": {
+                "insight_subtype": "overall_best",
+                "best_count": 2,
+                "total_count": 2,
+                "best_contexts": [
+                  "(Huang and Riloff 2013)",
+                  "+Subevents"
+                ],
+                "secondary_axis": true
+              },
+              "verification": "supported",
+              "score": {
+                "support": 0.8,
+                "importance": 2.0
+              }
+            }
+          }
+        ],
+        "potential_text_errors": []
+      }
+    }
+  ],
+  "failures": [
+    {
+      "table_id_paper": "D18-1315table_4",
+      "error": "No fully numeric table slice could be parsed."
+    },
+    {
+      "table_id_paper": "P16-1111table_2",
+      "error": "No fully numeric table slice could be parsed."
+    },
+    {
+      "table_id_paper": "P17-2097table_3",
+      "error": "No fully numeric table slice could be parsed."
+    },
+    {
+      "table_id_paper": "P18-1075table_5",
+      "error": "No fully numeric table slice could be parsed."
+    },
+    {
+      "table_id_paper": "P18-1182table_3",
+      "error": "No fully numeric table slice could be parsed."
+    }
+  ],
+  "notes": [
+    "Rule v2 uses general insight types such as comparison, extremum, proportion, trend, and relationship, with experiment-table subtypes stored in details.insight_subtype.",
+    "Experiment-table subtypes include method/system wins, baseline improvements, ablations, ties, group contrasts, dominant shares, ordered trends, and linear correlations.",
+    "Metric direction is applied when lower-is-better metrics such as error, loss, perplexity, WER, TER, MED, rank, time, cost, or distance are detected.",
+    "text_correction is a heuristic baseline: potential_text_errors are candidates for manual/LLM verification, not final labels."
+  ]
+}

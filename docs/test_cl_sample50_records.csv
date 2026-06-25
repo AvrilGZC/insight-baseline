@@ -1,0 +1,51 @@
+group,record_id,paper_id,paper,covered,partially_covered,missing,contradicted
+test-CL,18,1810.04864v1,Sequence-to-Sequence Models for Data-to-Text Natural Language Generation: Word- vs. Character-based Processing and Output Diversity,0,0,1,2
+test-CL,24,1907.13337v1,Simple Unsupervised Summarization by Contextual Matching,0,0,4,0
+test-CL,33,1901.02534v1,Team Papelo: Transformer Networks at FEVER,0,1,2,0
+test-CL,50,1908.05267v2,Towards Debiasing Fact Verification Models,0,2,2,0
+test-CL,51,1706.09789v3,Two-Stage Synthesis Networks for Transfer Learning in Machine Comprehension,3,0,0,0
+test-CL,60,1908.03402v1,UdS Submission for the WMT 19 Automatic Post-Editing Task,0,3,0,0
+test-CL,106,1710.03430v3,Learning to Rank Question-Answer Pairs using Hierarchical Recurrent Encoder with Latent Topic Clustering,0,2,1,0
+test-CL,109,1910.13794v1,Let Me Know What to Ask: Interrogative-Word-Aware Question Generation,0,1,1,0
+test-CL,113,1910.13794v1,Let Me Know What to Ask: Interrogative-Word-Aware Question Generation,0,0,5,0
+test-CL,122,1707.06961v1,Mimicking Word Embeddings using Subword RNNs,0,0,1,0
+test-CL,128,1805.10254v1,Neural Argument Generation Augmented with Externally Retrieved Evidence,1,0,3,0
+test-CL,156,1904.00132v2,ANA at SemEval-2019 Task 3: Contextual Emotion detection in Conversations through hierarchical LSTMs and BERT,0,0,3,0
+test-CL,173,1906.04772v1,A Systematic Comparison of English Noun Compound Representations,0,0,6,0
+test-CL,178,1905.13126v1,Automatic Evaluation of Local Topic Quality,0,1,4,0
+test-CL,191,1804.02472v1,Neural models of factuality,0,0,4,0
+test-CL,196,1704.04455v2,Cardinal Virtues: Extracting Relation Cardinalities from Text,1,2,1,0
+test-CL,213,1904.02338v2,Consistency by Agreement in Zero-shot Neural Machine Translation,0,1,3,0
+test-CL,231,1707.05853v2,Encoding Word Confusion Networks with Recurrent Neural Networksfor Dialog State Tracking,1,1,2,0
+test-CL,234,1805.03871v1,Obligation and Prohibition Extraction Using Hierarchical RNNs,0,1,3,0
+test-CL,241,1805.03871v1,Obligation and Prohibition Extraction Using Hierarchical RNNs,1,1,3,0
+test-CL,253,1906.06947v1,Open Domain Event Extraction Using Neural Latent Variable Models,1,1,2,0
+test-CL,292,1807.04053v1,UniParse: A universal graph-based parsing toolkit,0,2,2,0
+test-CL,312,2002.10345v1,Improving BERT Fine-Tuning via Self-Ensemble and Self-Distillation,0,0,3,0
+test-CL,315,1912.07491v1,Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering,1,1,1,0
+test-CL,317,1912.07491v1,Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering,0,1,3,0
+test-CL,319,1912.07491v1,Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering,0,2,3,0
+test-CL,320,1909.12764v1,Improving Semantic Parsing with Neural Generator-Reranker Architecture,1,2,2,0
+test-CL,321,2003.03716v1,Investigating the Decoders of Maximum Likelihood Sequence Models: A Look-ahead Approach,0,1,3,0
+test-CL,335,2002.00293v1,Beat the AI: Investigating Adversarial Human Annotationsfor Reading Comprehension,0,0,4,0
+test-CL,351,1910.02655v1,BERT for Evidence Retrieval and Claim Verification,0,1,3,0
+test-CL,352,1910.14539v1,Naver Labs Europe’s Systems for theDocument-Level Generation and Translation Task at WNGT 2019,0,0,4,0
+test-CL,354,1910.14539v1,Naver Labs Europe’s Systems for theDocument-Level Generation and Translation Task at WNGT 2019,0,3,1,0
+test-CL,360,1906.04106v1,Neural Keyphrase Generation via Reinforcement Learning with Adaptive Rewards,0,0,3,0
+test-CL,362,2002.04250v2,Non-Autoregressive Neural Dialogue Generation,1,1,1,0
+test-CL,363,2002.04250v2,Non-Autoregressive Neural Dialogue Generation,0,3,1,0
+test-CL,366,1911.01055v1,On the Effectiveness of the Pooling Methods for Biomedical Relation Extraction with Deep Learning,0,0,3,1
+test-CL,367,1905.07588v1,BERTSel: Answer Selection with Pre-trained Models,0,1,3,0
+test-CL,368,1911.01055v1,On the Effectiveness of the Pooling Methods for Biomedical Relation Extraction with Deep Learning,0,0,4,0
+test-CL,380,1904.04745v1,Cross-Modal Self-Attention Network for Referring Image Segmentation,0,1,3,0
+test-CL,402,1810.02229v1,Italian Event Detection Goes Deep Learning,0,0,4,0
+test-CL,415,1805.06061v1,"SoPa: Bridging CNNs, RNNs, and Weighted Finite-State Machines",0,2,1,1
+test-CL,417,1901.01010v2,A Joint Model for Multimodal Document Quality Assessment,2,0,1,0
+test-CL,421,1912.00871v1,Solving Arithmetic Word Problems Automatically Using Transformer and Unambiguous Representations,0,0,5,0
+test-CL,427,1910.12647v1,HUBERT Untangles BERT to Improve Transfer across NLP Tasks,0,0,3,0
+test-CL,441,1906.06442v1,Tagged Back-Translation,0,0,3,0
+test-CL,453,2003.08875v1,Beheshti-NER: Persian named entity recognition Using BERT,0,0,4,0
+test-CL,458,1911.10392,When is ACL’s Deadline? A Scientific Conversational Agent,0,0,4,0
+test-CL,463,6,Corpus-driven Thematic Hierarchy Induction,0,1,2,0
+test-CL,465,1908.11254v1,FAMULUS: Interactive Annotation and Feedback Generation for Teaching Diagnostic Reasoning,0,0,4,0
+test-CL,477,5,Ranking Generated Summaries by Correctness: An Interesting but Challenging Application for Natural Language Inference,2,1,1,0

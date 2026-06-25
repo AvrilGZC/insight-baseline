@@ -1,0 +1,1330 @@
+{
+  "summary": {
+    "records": 15,
+    "supported_sentences": 16,
+    "refuted_sentences": 7,
+    "nei_sentences": 53,
+    "audited_sentences": 76
+  },
+  "results": [
+    {
+      "parent_id": "D17-1231table_6",
+      "paper": "",
+      "paper_id": "D17-1231",
+      "table_id": "table_6",
+      "caption": "DA classification results (%) using different systems.",
+      "supported_sentences": [],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "D17-1231table_6_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 6 summarizes the results for different systems, including the baseline CNN model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted DA information (posterior probabilities) is combined with the current sentence's CNN-based representation; (b) applying a BLSTM on top of the sentence CNN representation; (c) hierarchical CNN that combines the current sentence's CNN representation with its neighbors; (d) sequence decoding by combining CNN posteriors with DA transition scores.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 3.170116258388589e-08,
+            "refutes": 2.486638450704959e-09,
+            "nei": 1.0
+          },
+          "support_score": 3.170116258388589e-08,
+          "contradiction_score": -2.921452413318093e-08,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1231table_6_sent_001",
+          "sentence_index": 1,
+          "claim": "From the results, we can see the positive effect when context information is used.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.4218589683423488e-07,
+            "refutes": 1.2763675449889433e-08,
+            "nei": 0.9999998807907104
+          },
+          "support_score": 1.4218589683423488e-07,
+          "contradiction_score": -1.2942222138434545e-07,
+          "uncertainty_score": 0.9999998807907104
+        },
+        {
+          "example_id": "D17-1231table_6_sent_003",
+          "sentence_index": 3,
+          "claim": "Comparing representing context information via the DA labels of the previous utterances vs using the hierarchical CNN or RNN model, we see there is not much difference.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.1581624903556076e-07,
+            "refutes": 7.389953680103645e-07,
+            "nei": 0.9999991655349731
+          },
+          "support_score": 1.1581624903556076e-07,
+          "contradiction_score": 6.231791189748037e-07,
+          "uncertainty_score": 0.9999991655349731
+        },
+        {
+          "example_id": "D17-1231table_6_sent_002",
+          "sentence_index": 2,
+          "claim": "All the methods using context yield significant improvement over the baseline (statistically significant based on t-test).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 5.458041869133012e-06,
+            "refutes": 2.0184964455438603e-07,
+            "nei": 0.9999943971633911
+          },
+          "support_score": 5.458041869133012e-06,
+          "contradiction_score": -5.256192224578626e-06,
+          "uncertainty_score": 0.9999943971633911
+        }
+      ],
+      "summary": {
+        "supports": 0,
+        "refutes": 0,
+        "nei": 4
+      }
+    },
+    {
+      "parent_id": "D17-1310table_2",
+      "paper": "",
+      "paper_id": "D17-1310",
+      "table_id": "table_2",
+      "caption": "Experiment results",
+      "supported_sentences": [
+        {
+          "example_id": "D17-1310table_2_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 2 depicts experiment results.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9999402761459351,
+            "refutes": 5.969765334157273e-05,
+            "nei": 1.5070819592288842e-10
+          },
+          "support_score": 0.9999402761459351,
+          "contradiction_score": -0.9998805784925935,
+          "uncertainty_score": 1.5070819592288842e-10
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "D17-1310table_2_sent_001",
+          "sentence_index": 1,
+          "claim": "Compared to the best systems in SemEval challenge, MIN achieves 3.0% and 1.1% absolute gains on D1 and D2 respectively.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.3859245246171668e-08,
+            "refutes": 2.2688576278157013e-12,
+            "nei": 1.0
+          },
+          "support_score": 2.3859245246171668e-08,
+          "contradiction_score": -2.3856976388543852e-08,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1310table_2_sent_002",
+          "sentence_index": 2,
+          "claim": "Besides, our MIN outperforms WDEmb, a strong CRF-based system benefiting from several kinds of useful word embeddings, by 2.1% on D1.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.2622231038150744e-10,
+            "refutes": 1.1094826331259616e-14,
+            "nei": 1.0
+          },
+          "support_score": 1.2622231038150744e-10,
+          "contradiction_score": -1.2621121555517618e-10,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1310table_2_sent_003",
+          "sentence_index": 3,
+          "claim": "With memory interactions and consideration of sentimental sentence, our MIN boosts the performance of vanilla bi-directional LSTM (+2.0% and +1.7% respectively).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.090887796761919e-12,
+            "refutes": 9.074654393184445e-17,
+            "nei": 1.0
+          },
+          "support_score": 1.090887796761919e-12,
+          "contradiction_score": -1.0907970502179872e-12,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1310table_2_sent_004",
+          "sentence_index": 4,
+          "claim": "It validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.445474578394169e-08,
+            "refutes": 3.1289952850954705e-09,
+            "nei": 1.0
+          },
+          "support_score": 2.445474578394169e-08,
+          "contradiction_score": -2.132575049884622e-08,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1310table_2_sent_006",
+          "sentence_index": 6,
+          "claim": "To further study the impact of each element in MIN, we conduct ablation experiments.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 9.831593309661307e-18,
+            "refutes": 2.1676657586130397e-23,
+            "nei": 1.0
+          },
+          "support_score": 9.831593309661307e-18,
+          "contradiction_score": -9.83157163300372e-18,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D17-1310table_2_sent_005",
+          "sentence_index": 5,
+          "claim": "MIN also outperforms the state-of-the-art RNCRF on each dataset suggesting that memory interactions can be an alternative strategy instead of syntactic parsing.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0035414996091276407,
+            "refutes": 0.003425773000344634,
+            "nei": 0.993032693862915
+          },
+          "support_score": 0.0035414996091276407,
+          "contradiction_score": -0.00011572660878300667,
+          "uncertainty_score": 0.993032693862915
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 0,
+        "nei": 6
+      }
+    },
+    {
+      "parent_id": "D18-1229table_1",
+      "paper": "",
+      "paper_id": "D18-1229",
+      "table_id": "table_1",
+      "caption": "We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).",
+      "supported_sentences": [],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "D18-1229table_1_sent_000",
+          "sentence_index": 0,
+          "claim": "In Table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 6.094571514125846e-10,
+            "refutes": 1.299166243334815e-11,
+            "nei": 1.0
+          },
+          "support_score": 6.094571514125846e-10,
+          "contradiction_score": -5.964654889792365e-10,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D18-1229table_1_sent_001",
+          "sentence_index": 1,
+          "claim": "The recall performance in Table 1 also confirms the performance gains of the scatterplot.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.0448595981482622e-11,
+            "refutes": 4.327345637855293e-15,
+            "nei": 1.0
+          },
+          "support_score": 1.0448595981482622e-11,
+          "contradiction_score": -1.0444268635844767e-11,
+          "uncertainty_score": 1.0
+        }
+      ],
+      "summary": {
+        "supports": 0,
+        "refutes": 0,
+        "nei": 2
+      }
+    },
+    {
+      "parent_id": "D18-1352table_4",
+      "paper": "",
+      "paper_id": "D18-1352",
+      "table_id": "table_4",
+      "caption": "P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).",
+      "supported_sentences": [
+        {
+          "example_id": "D18-1352table_4_sent_003",
+          "sentence_index": 3,
+          "claim": "Furthermore, we find that ACNN outperforms ZAGCNN in P@10 by almost 4%.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.999336302280426,
+            "refutes": 8.576272375648841e-05,
+            "nei": 0.0005779063794761896
+          },
+          "support_score": 0.999336302280426,
+          "contradiction_score": -0.9992505395566695,
+          "uncertainty_score": 0.0005779063794761896
+        },
+        {
+          "example_id": "D18-1352table_4_sent_002",
+          "sentence_index": 2,
+          "claim": "We find that R@10 is nearly equivalent to the R@10 on the frequent group in Table 3.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9225627183914185,
+            "refutes": 0.0022759020794183016,
+            "nei": 0.07516136020421982
+          },
+          "support_score": 0.9225627183914185,
+          "contradiction_score": -0.9202868163120002,
+          "uncertainty_score": 0.07516136020421982
+        }
+      ],
+      "refuted_sentences": [
+        {
+          "example_id": "D18-1352table_4_sent_005",
+          "sentence_index": 5,
+          "claim": "Both R@k and P@k give more weight to frequent labels, thus it is expected that ACNN outperforms ZAGCNN for frequent labels.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.172761470079422,
+            "refutes": 0.8168273568153381,
+            "nei": 0.010411196388304234
+          },
+          "support_score": 0.172761470079422,
+          "contradiction_score": 0.6440658867359161,
+          "uncertainty_score": 0.010411196388304234
+        }
+      ],
+      "nei_sentences": [
+        {
+          "example_id": "D18-1352table_4_sent_004",
+          "sentence_index": 4,
+          "claim": "To compare all methods with respect to macro-F1, we simply threshold each label at 0.5.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0001254603121196851,
+            "refutes": 1.100617459245056e-15,
+            "nei": 0.999874472618103
+          },
+          "support_score": 0.0001254603121196851,
+          "contradiction_score": -0.00012546031211858449,
+          "uncertainty_score": 0.999874472618103
+        },
+        {
+          "example_id": "D18-1352table_4_sent_000",
+          "sentence_index": 0,
+          "claim": "In Table 4 we compare the P@10, R@10, and macro-F1 measures across all three groups (the union of S, F, and Z) on the MIMIC III dataset.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.00023798314214218408,
+            "refutes": 3.980307519668713e-05,
+            "nei": 0.9997221827507019
+          },
+          "support_score": 0.00023798314214218408,
+          "contradiction_score": -0.00019818006694549695,
+          "uncertainty_score": 0.9997221827507019
+        },
+        {
+          "example_id": "D18-1352table_4_sent_006",
+          "sentence_index": 6,
+          "claim": "However, we also find that ACNN outperforms our methods with respect to Macro-F1.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.05810932815074921,
+            "refutes": 2.6209400871834987e-08,
+            "nei": 0.9418906569480896
+          },
+          "support_score": 0.05810932815074921,
+          "contradiction_score": -0.058109301941348335,
+          "uncertainty_score": 0.9418906569480896
+        },
+        {
+          "example_id": "D18-1352table_4_sent_001",
+          "sentence_index": 1,
+          "claim": "We emphasize that the evaluation metrics are calculated over all labels and are not averages of the metrics computed independently for each group.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.05185975879430771,
+            "refutes": 0.40162578225135803,
+            "nei": 0.5465144515037537
+          },
+          "support_score": 0.05185975879430771,
+          "contradiction_score": 0.3497660234570503,
+          "uncertainty_score": 0.5465144515037537
+        }
+      ],
+      "summary": {
+        "supports": 2,
+        "refutes": 1,
+        "nei": 4
+      }
+    },
+    {
+      "parent_id": "D19-1197table_1",
+      "paper": "",
+      "paper_id": "D19-1197",
+      "table_id": "table_1",
+      "caption": "Automatic evaluation results for the task of question response generation. Numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value< 0.01).",
+      "supported_sentences": [
+        {
+          "example_id": "D19-1197table_1_sent_002",
+          "sentence_index": 2,
+          "claim": "We can see that S2S-Temp outperforms all baseline models in terms of all metrics, and the improvements are statistically significant (t-test with p-value< 0.01).",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9916521906852722,
+            "refutes": 0.0033767542336136103,
+            "nei": 0.004971006419509649
+          },
+          "support_score": 0.9916521906852722,
+          "contradiction_score": -0.9882754364516586,
+          "uncertainty_score": 0.004971006419509649
+        },
+        {
+          "example_id": "D19-1197table_1_sent_001",
+          "sentence_index": 1,
+          "claim": "Table 1 report the results of automatic evaluation on the question response generation task.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.7865021228790283,
+            "refutes": 2.648952612815947e-09,
+            "nei": 0.21349795162677765
+          },
+          "support_score": 0.7865021228790283,
+          "contradiction_score": -0.7865021202300757,
+          "uncertainty_score": 0.21349795162677765
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "D19-1197table_1_sent_004",
+          "sentence_index": 4,
+          "claim": "Although lacking fine-grained check, from the comparison among S2S-Temp-None, S2S-Temp-50%, and S2S-Temp, we can conclude that the performance of S2S-Temp improves with more unpaired data.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 3.690002631628886e-05,
+            "refutes": 1.26842451209086e-06,
+            "nei": 0.9999618530273438
+          },
+          "support_score": 3.690002631628886e-05,
+          "contradiction_score": -3.5631601804198e-05,
+          "uncertainty_score": 0.9999618530273438
+        },
+        {
+          "example_id": "D19-1197table_1_sent_006",
+          "sentence_index": 6,
+          "claim": "The results further verified the important role the unpaired data plays in learning of a response generation model from low resources.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.00019563749083317816,
+            "refutes": 2.515409141778946e-05,
+            "nei": 0.9997791647911072
+          },
+          "support_score": 0.00019563749083317816,
+          "contradiction_score": -0.0001704833994153887,
+          "uncertainty_score": 0.9997791647911072
+        },
+        {
+          "example_id": "D19-1197table_1_sent_007",
+          "sentence_index": 7,
+          "claim": "S2S-Temp is better than S2S-TempMLE, indicating that the adversarial learning approach can indeed enhance the relevance of responses regarding to messages.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0032271365635097027,
+            "refutes": 0.0013597335200756788,
+            "nei": 0.9954131245613098
+          },
+          "support_score": 0.0032271365635097027,
+          "contradiction_score": -0.0018674030434340239,
+          "uncertainty_score": 0.9954131245613098
+        },
+        {
+          "example_id": "D19-1197table_1_sent_003",
+          "sentence_index": 3,
+          "claim": "The results demonstrate that when only limited pairs are available, S2STemp can effectively leverage unpaired data to enhance the quality of response generation.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.00828768964856863,
+            "refutes": 0.0037825230974704027,
+            "nei": 0.9879298210144043
+          },
+          "support_score": 0.00828768964856863,
+          "contradiction_score": -0.0045051665510982275,
+          "uncertainty_score": 0.9879298210144043
+        },
+        {
+          "example_id": "D19-1197table_1_sent_000",
+          "sentence_index": 0,
+          "claim": "5.4 Evaluation Results.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.02778264880180359,
+            "refutes": 6.631872828677388e-11,
+            "nei": 0.972217321395874
+          },
+          "support_score": 0.02778264880180359,
+          "contradiction_score": -0.02778264873548486,
+          "uncertainty_score": 0.972217321395874
+        },
+        {
+          "example_id": "D19-1197table_1_sent_005",
+          "sentence_index": 5,
+          "claim": "Moreover, without unpaired data, our model is even worse than CVAE since the structured templates cannot be accurately estimated from such a few data, and as long as half of the unpaired data are available, the model outperforms the baseline models on most metrics.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.02064121700823307,
+            "refutes": 0.03726063296198845,
+            "nei": 0.9420982003211975
+          },
+          "support_score": 0.02064121700823307,
+          "contradiction_score": 0.01661941595375538,
+          "uncertainty_score": 0.9420982003211975
+        }
+      ],
+      "summary": {
+        "supports": 2,
+        "refutes": 0,
+        "nei": 6
+      }
+    },
+    {
+      "parent_id": "D19-1399table_8",
+      "paper": "",
+      "paper_id": "D19-1399",
+      "table_id": "table_8",
+      "caption": "F1 performance of DGLSTM-CRF with predicted dependencies against the best performing BiLSTM-CRF. \u2020: LAS is label attachment score which is the metric for dependency evaluation.",
+      "supported_sentences": [],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "D19-1399table_8_sent_005",
+          "sentence_index": 5,
+          "claim": "Such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 5.826186644242171e-09,
+            "refutes": 2.683585124951815e-12,
+            "nei": 1.0
+          },
+          "support_score": 5.826186644242171e-09,
+          "contradiction_score": -5.823503059117219e-09,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "D19-1399table_8_sent_001",
+          "sentence_index": 1,
+          "claim": "We implemented the dependency parser using the AllenNLP package (Gardner et al., 2017).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.9102184523944743e-05,
+            "refutes": 4.078685549302463e-07,
+            "nei": 0.9999804496765137
+          },
+          "support_score": 1.9102184523944743e-05,
+          "contradiction_score": -1.8694315969014497e-05,
+          "uncertainty_score": 0.9999804496765137
+        },
+        {
+          "example_id": "D19-1399table_8_sent_003",
+          "sentence_index": 3,
+          "claim": "DGLSTMCRF even with predicted dependencies is able to consistently outperform the BiLSTM-CRF on four languages.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.007143404800444841,
+            "refutes": 1.6463235219532635e-09,
+            "nei": 0.9928566217422485
+          },
+          "support_score": 0.007143404800444841,
+          "contradiction_score": -0.007143403154121319,
+          "uncertainty_score": 0.9928566217422485
+        },
+        {
+          "example_id": "D19-1399table_8_sent_002",
+          "sentence_index": 2,
+          "claim": "Table 8 shows the performance (LAS) of the dependency parser on four languages (i.e., OntoNotes English, OntoNotes Chinese, Catalan and Spanish) and the performance of DGLSTM-CRF against the best performing BiLSTM-CRF with ELMo.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.009775403887033463,
+            "refutes": 0.0024468733463436365,
+            "nei": 0.9877776503562927
+          },
+          "support_score": 0.009775403887033463,
+          "contradiction_score": -0.007328530540689826,
+          "uncertainty_score": 0.9877776503562927
+        },
+        {
+          "example_id": "D19-1399table_8_sent_000",
+          "sentence_index": 0,
+          "claim": "Effect of Dependency Quality To evaluate how the quality of dependency trees affect the performance, we train a state-of-the-art dependency parser (Dozat and Manning, 2017) using our training set and make prediction on the development/test set.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.023676034063100815,
+            "refutes": 9.884334576781839e-05,
+            "nei": 0.9762251377105713
+          },
+          "support_score": 0.023676034063100815,
+          "contradiction_score": -0.023577190717332996,
+          "uncertainty_score": 0.9762251377105713
+        },
+        {
+          "example_id": "D19-1399table_8_sent_004",
+          "sentence_index": 4,
+          "claim": "However, the performance is still worse than the DGLSTM-CRF with gold dependencies, especially on the Catalan and Spanish.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.07583285123109818,
+            "refutes": 0.00686923461034894,
+            "nei": 0.9172979593276978
+          },
+          "support_score": 0.07583285123109818,
+          "contradiction_score": -0.06896361662074924,
+          "uncertainty_score": 0.9172979593276978
+        }
+      ],
+      "summary": {
+        "supports": 0,
+        "refutes": 0,
+        "nei": 6
+      }
+    },
+    {
+      "parent_id": "P16-1181table_2",
+      "paper": "",
+      "paper_id": "P16-1181",
+      "table_id": "table_2",
+      "caption": "Results (F1) for baselines for sentence boundary detection on dev sets.",
+      "supported_sentences": [
+        {
+          "example_id": "P16-1181table_2_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 2 shows the accuracies of all baseline systems on the development sets.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.821495771408081,
+            "refutes": 0.09799688309431076,
+            "nei": 0.0805073156952858
+          },
+          "support_score": 0.821495771408081,
+          "contradiction_score": -0.7234988883137703,
+          "uncertainty_score": 0.0805073156952858
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "P16-1181table_2_sent_002",
+          "sentence_index": 2,
+          "claim": "As can be seen, predicting sentence boundaries for the Switchboard dataset is a more difficult task than for well-formatted text like the WSJ.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.5943007383611985e-05,
+            "refutes": 1.6563842564210063e-06,
+            "nei": 0.9999823570251465
+          },
+          "support_score": 1.5943007383611985e-05,
+          "contradiction_score": -1.4286623127190978e-05,
+          "uncertainty_score": 0.9999823570251465
+        },
+        {
+          "example_id": "P16-1181table_2_sent_001",
+          "sentence_index": 1,
+          "claim": "For WSJ all three algorithms achieve similar results which shows that MARMOT is a competitive baseline.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 3.276210554759018e-05,
+            "refutes": 9.463420498623254e-12,
+            "nei": 0.9999672174453735
+          },
+          "support_score": 3.276210554759018e-05,
+          "contradiction_score": -3.276209608416968e-05,
+          "uncertainty_score": 0.9999672174453735
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 0,
+        "nei": 2
+      }
+    },
+    {
+      "parent_id": "P16-1203table_5",
+      "paper": "",
+      "paper_id": "P16-1203",
+      "table_id": "table_5",
+      "caption": "Performance of J48 for different feature settings",
+      "supported_sentences": [
+        {
+          "example_id": "P16-1203table_5_sent_001",
+          "sentence_index": 1,
+          "claim": "Specifically, using all features except phonological features is equivalent to using phonological features alone (about F = 79% in both cases) and slightly worse that using all name-intrinsic features (about F = 80%).",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.999996542930603,
+            "refutes": 3.3635617455729516e-06,
+            "nei": 7.096288356933655e-08
+          },
+          "support_score": 0.999996542930603,
+          "contradiction_score": -0.9999931793688575,
+          "uncertainty_score": 7.096288356933655e-08
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "P16-1203table_5_sent_000",
+          "sentence_index": 0,
+          "claim": "The phonological features are important separation criteria as evidenced by the drop in performance when they are excluded from the experimental setup (Table 5).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0036012178752571344,
+            "refutes": 0.005863943602889776,
+            "nei": 0.9905348420143127
+          },
+          "support_score": 0.0036012178752571344,
+          "contradiction_score": 0.002262725727632642,
+          "uncertainty_score": 0.9905348420143127
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 0,
+        "nei": 1
+      }
+    },
+    {
+      "parent_id": "P17-2079table_3",
+      "paper": "",
+      "paper_id": "P17-2079",
+      "table_id": "table_3",
+      "caption": "Comparison with another chatbot.",
+      "supported_sentences": [
+        {
+          "example_id": "P17-2079table_3_sent_004",
+          "sentence_index": 4,
+          "claim": "The Kappa measure between the analysts is 0.71, which shows a substantial agreement.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.7252952456474304,
+            "refutes": 1.9594896002672613e-05,
+            "nei": 0.2746851146221161
+          },
+          "support_score": 0.7252952456474304,
+          "contradiction_score": -0.7252756507514277,
+          "uncertainty_score": 0.2746851146221161
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "P17-2079table_3_sent_001",
+          "sentence_index": 1,
+          "claim": "We select 878 out of the 1047 testing questions (used in the A/B test) by removing questions relevant to our chatbot, and use it to test the public one.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.8188575470133523e-14,
+            "refutes": 4.693201111221715e-17,
+            "nei": 1.0
+          },
+          "support_score": 2.8188575470133523e-14,
+          "contradiction_score": -2.8141643459021306e-14,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P17-2079table_3_sent_002",
+          "sentence_index": 2,
+          "claim": "To compare their answers with ours, two business analysts were asked to choose a better response for each testing question.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.5138096387090627e-05,
+            "refutes": 2.4643093121667903e-10,
+            "nei": 0.999984860420227
+          },
+          "support_score": 1.5138096387090627e-05,
+          "contradiction_score": -1.513784995615941e-05,
+          "uncertainty_score": 0.999984860420227
+        },
+        {
+          "example_id": "P17-2079table_3_sent_000",
+          "sentence_index": 0,
+          "claim": "To further evaluate our approach, we compared it with a publicly available chatbot.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0007754600956104696,
+            "refutes": 2.4151014521578418e-11,
+            "nei": 0.9992245435714722
+          },
+          "support_score": 0.0007754600956104696,
+          "contradiction_score": -0.0007754600714594551,
+          "uncertainty_score": 0.9992245435714722
+        },
+        {
+          "example_id": "P17-2079table_3_sent_003",
+          "sentence_index": 3,
+          "claim": "Table 3 shows the averaged results from the two analysts, clearly our chatbot has a better performance (better on 37.64% of the 878 questions and worse on 18.84%).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.1926359385251999,
+            "refutes": 0.0057033514603972435,
+            "nei": 0.8016607165336609
+          },
+          "support_score": 0.1926359385251999,
+          "contradiction_score": -0.18693258706480265,
+          "uncertainty_score": 0.8016607165336609
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 0,
+        "nei": 4
+      }
+    },
+    {
+      "parent_id": "P18-1044table_5",
+      "paper": "",
+      "paper_id": "P18-1044",
+      "table_id": "table_5",
+      "caption": "The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. \u2021 denotes that the improvement is statistically significant at p < 0.05, compared with Gen using paired t-test.",
+      "supported_sentences": [
+        {
+          "example_id": "P18-1044table_5_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 5 lists the experimental results.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9858333468437195,
+            "refutes": 2.8450918421185634e-07,
+            "nei": 0.014166407287120819
+          },
+          "support_score": 0.9858333468437195,
+          "contradiction_score": -0.9858330623345353,
+          "uncertainty_score": 0.014166407287120819
+        },
+        {
+          "example_id": "P18-1044table_5_sent_001",
+          "sentence_index": 1,
+          "claim": "Our models (Gen and Gen+Adv) outperformed the previous models.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9282435178756714,
+            "refutes": 0.028698110952973366,
+            "nei": 0.043058376759290695
+          },
+          "support_score": 0.9282435178756714,
+          "contradiction_score": -0.899545406922698,
+          "uncertainty_score": 0.043058376759290695
+        }
+      ],
+      "refuted_sentences": [
+        {
+          "example_id": "P18-1044table_5_sent_002",
+          "sentence_index": 2,
+          "claim": "Furthermore, the proposed model with adversarial training (Gen+Adv) was significantly better than the supervised model (Gen).",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.08423512428998947,
+            "refutes": 0.8237259984016418,
+            "nei": 0.09203890711069107
+          },
+          "support_score": 0.08423512428998947,
+          "contradiction_score": 0.7394908741116524,
+          "uncertainty_score": 0.09203890711069107
+        }
+      ],
+      "nei_sentences": [],
+      "summary": {
+        "supports": 2,
+        "refutes": 1,
+        "nei": 0
+      }
+    },
+    {
+      "parent_id": "P18-1120table_3",
+      "paper": "",
+      "paper_id": "P18-1120",
+      "table_id": "table_3",
+      "caption": "Scores for MRR and Top k results.",
+      "supported_sentences": [
+        {
+          "example_id": "P18-1120table_3_sent_003",
+          "sentence_index": 3,
+          "claim": "Table 3 shows that our AP algorithm outperforms all 3 baseline methods.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9227179884910583,
+            "refutes": 0.04219602793455124,
+            "nei": 0.03508604317903519
+          },
+          "support_score": 0.9227179884910583,
+          "contradiction_score": -0.8805219605565071,
+          "uncertainty_score": 0.03508604317903519
+        }
+      ],
+      "refuted_sentences": [
+        {
+          "example_id": "P18-1120table_3_sent_008",
+          "sentence_index": 8,
+          "claim": "These results show that our AP method produces more correct answers at the top of the list than the baseline methods.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.40202298760414124,
+            "refutes": 0.44083523750305176,
+            "nei": 0.1571417599916458
+          },
+          "support_score": 0.40202298760414124,
+          "contradiction_score": 0.03881224989891052,
+          "uncertainty_score": 0.1571417599916458
+        }
+      ],
+      "nei_sentences": [
+        {
+          "example_id": "P18-1120table_3_sent_002",
+          "sentence_index": 2,
+          "claim": "We show results for 5 variations of the algorithm: AP uses Algorithm 1, and the others use Algorithm 2 with different Activity Similarity measures: AP+AL (location profile similarity), AP+AO (overlap similarity), AP+AE (embedding similarity), and AP+AL+E (location profiles plus embeddings).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.971680518847053e-13,
+            "refutes": 2.44583304618521e-16,
+            "nei": 1.0
+          },
+          "support_score": 2.971680518847053e-13,
+          "contradiction_score": -2.969234685800868e-13,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P18-1120table_3_sent_007",
+          "sentence_index": 7,
+          "claim": "For these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.3631332446427677e-09,
+            "refutes": 4.7844822721743174e-12,
+            "nei": 1.0
+          },
+          "support_score": 2.3631332446427677e-09,
+          "contradiction_score": -2.3583487623705934e-09,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P18-1120table_3_sent_001",
+          "sentence_index": 1,
+          "claim": "The first 3 rows show the results for the baseline systems, and the remaining rows show results for our Activity Profile (AP) semi-supervised learning method.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 8.751066360446202e-08,
+            "refutes": 9.928976396622602e-08,
+            "nei": 0.9999997615814209
+          },
+          "support_score": 8.751066360446202e-08,
+          "contradiction_score": 1.1779100361763994e-08,
+          "uncertainty_score": 0.9999997615814209
+        },
+        {
+          "example_id": "P18-1120table_3_sent_004",
+          "sentence_index": 4,
+          "claim": "When adding Activity Similarity into the algorithm, we find that AL slightly improves performance, but AO and AE do not.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 5.3268329793354496e-05,
+            "refutes": 1.4074485079618171e-05,
+            "nei": 0.9999326467514038
+          },
+          "support_score": 5.3268329793354496e-05,
+          "contradiction_score": -3.9193844713736326e-05,
+          "uncertainty_score": 0.9999326467514038
+        },
+        {
+          "example_id": "P18-1120table_3_sent_005",
+          "sentence_index": 5,
+          "claim": "However, we also tried combining them and obtained improved results by using AL and AE together, yielding an MRRP score of 0.42.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.006087239366024733,
+            "refutes": 0.0003397046821191907,
+            "nei": 0.993573009967804
+          },
+          "support_score": 0.006087239366024733,
+          "contradiction_score": -0.005747534683905542,
+          "uncertainty_score": 0.993573009967804
+        },
+        {
+          "example_id": "P18-1120table_3_sent_000",
+          "sentence_index": 0,
+          "claim": "The first two columns of Table 3 show the MRR results under Exact Match and Partial Match conditions.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0006424820749089122,
+            "refutes": 0.17648455500602722,
+            "nei": 0.8228729367256165
+          },
+          "support_score": 0.0006424820749089122,
+          "contradiction_score": 0.1758420729311183,
+          "uncertainty_score": 0.8228729367256165
+        },
+        {
+          "example_id": "P18-1120table_3_sent_006",
+          "sentence_index": 6,
+          "claim": "To gain more insight about the behavior of the models, Table 3 also shows results for the topranked 1, 2, and 3 answers.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.27156493067741394,
+            "refutes": 0.015068077482283115,
+            "nei": 0.7133669853210449
+          },
+          "support_score": 0.27156493067741394,
+          "contradiction_score": -0.2564968531951308,
+          "uncertainty_score": 0.7133669853210449
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 1,
+        "nei": 7
+      }
+    },
+    {
+      "parent_id": "P19-1012table_1",
+      "paper": "",
+      "paper_id": "P19-1012",
+      "table_id": "table_1",
+      "caption": "Average (from six runs) parsing results (LAS) on test sets. \u2020 marks statistical significance (p-value < 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.",
+      "supported_sentences": [],
+      "refuted_sentences": [
+        {
+          "example_id": "P19-1012table_1_sent_003",
+          "sentence_index": 3,
+          "claim": "It shows that the differences between models are not restricted to arcs of particular lengths.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.00011153841478517279,
+            "refutes": 0.9983338713645935,
+            "nei": 0.0015546956565231085
+          },
+          "support_score": 0.00011153841478517279,
+          "contradiction_score": 0.9982223329498083,
+          "uncertainty_score": 0.0015546956565231085
+        },
+        {
+          "example_id": "P19-1012table_1_sent_001",
+          "sentence_index": 1,
+          "claim": "Comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.0005403030081652105,
+            "refutes": 0.8318745493888855,
+            "nei": 0.16758513450622559
+          },
+          "support_score": 0.0005403030081652105,
+          "contradiction_score": 0.8313342463807203,
+          "uncertainty_score": 0.16758513450622559
+        }
+      ],
+      "nei_sentences": [
+        {
+          "example_id": "P19-1012table_1_sent_002",
+          "sentence_index": 2,
+          "claim": "Figure 2 displays the accuracy relative to dependency length in terms of recall8.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.000915924203582108,
+            "refutes": 5.316844908520579e-05,
+            "nei": 0.9990309476852417
+          },
+          "support_score": 0.000915924203582108,
+          "contradiction_score": -0.0008627557544969022,
+          "uncertainty_score": 0.9990309476852417
+        },
+        {
+          "example_id": "P19-1012table_1_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 1 shows the accuracy of all the parsers.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.008805579505860806,
+            "refutes": 0.004927745554596186,
+            "nei": 0.9862666130065918
+          },
+          "support_score": 0.008805579505860806,
+          "contradiction_score": -0.00387783395126462,
+          "uncertainty_score": 0.9862666130065918
+        }
+      ],
+      "summary": {
+        "supports": 0,
+        "refutes": 2,
+        "nei": 2
+      }
+    },
+    {
+      "parent_id": "P19-1343table_6",
+      "paper": "",
+      "paper_id": "P19-1343",
+      "table_id": "table_6",
+      "caption": "Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.",
+      "supported_sentences": [
+        {
+          "example_id": "P19-1343table_6_sent_001",
+          "sentence_index": 1,
+          "claim": "Table 6 shows hate speech detection results.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9750231504440308,
+            "refutes": 0.024876773357391357,
+            "nei": 0.00010004436626331881
+          },
+          "support_score": 0.9750231504440308,
+          "contradiction_score": -0.9501463770866394,
+          "uncertainty_score": 0.00010004436626331881
+        },
+        {
+          "example_id": "P19-1343table_6_sent_003",
+          "sentence_index": 3,
+          "claim": "Remarkably, synthetic text alone outperforms gold text, because gold text has high class imbalance, leading to poorer prediction.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9666218161582947,
+            "refutes": 4.814447311218828e-05,
+            "nei": 0.03333007171750069
+          },
+          "support_score": 0.9666218161582947,
+          "contradiction_score": -0.9665736716851825,
+          "uncertainty_score": 0.03333007171750069
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "P19-1343table_6_sent_004",
+          "sentence_index": 4,
+          "claim": "Because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 2.0503967311990764e-14,
+            "refutes": 2.465032139813137e-18,
+            "nei": 1.0
+          },
+          "support_score": 2.0503967311990764e-14,
+          "contradiction_score": -2.050150227985095e-14,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P19-1343table_6_sent_000",
+          "sentence_index": 0,
+          "claim": "4.9 Hate speech detection results .",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0004526218690443784,
+            "refutes": 0.00011720367183443159,
+            "nei": 0.9994301199913025
+          },
+          "support_score": 0.0004526218690443784,
+          "contradiction_score": -0.0003354181972099468,
+          "uncertainty_score": 0.9994301199913025
+        },
+        {
+          "example_id": "P19-1343table_6_sent_002",
+          "sentence_index": 2,
+          "claim": "Training with only synthetic text after thresholding and stratified sampling outperforms training with only gold-tagged text by 4% F1, and using both gold and synthetic text gives a F1 boost of 6% beyond using gold alone.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.028729595243930817,
+            "refutes": 0.027921918779611588,
+            "nei": 0.9433485269546509
+          },
+          "support_score": 0.028729595243930817,
+          "contradiction_score": -0.0008076764643192291,
+          "uncertainty_score": 0.9433485269546509
+        }
+      ],
+      "summary": {
+        "supports": 2,
+        "refutes": 0,
+        "nei": 3
+      }
+    },
+    {
+      "parent_id": "P19-1596table_6",
+      "paper": "",
+      "paper_id": "P19-1596",
+      "table_id": "table_6",
+      "caption": "Automatic semantic evaluation (higher is better for all but SER).",
+      "supported_sentences": [
+        {
+          "example_id": "P19-1596table_6_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 6 presents the average SER rates for each model, where lower rates mean fewer mistakes (indicated by ?).",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9991477727890015,
+            "refutes": 0.0008208515355363488,
+            "nei": 3.137798921670765e-05
+          },
+          "support_score": 0.9991477727890015,
+          "contradiction_score": -0.9983269212534651,
+          "uncertainty_score": 3.137798921670765e-05
+        }
+      ],
+      "refuted_sentences": [
+        {
+          "example_id": "P19-1596table_6_sent_004",
+          "sentence_index": 4,
+          "claim": "Naturally, BASE, with no access to style information, has the best (lowest) SER.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 6.579629825864686e-06,
+            "refutes": 0.99998939037323,
+            "nei": 4.0437275856675114e-06
+          },
+          "support_score": 6.579629825864686e-06,
+          "contradiction_score": 0.9999828107434041,
+          "uncertainty_score": 4.0437275856675114e-06
+        },
+        {
+          "example_id": "P19-1596table_6_sent_005",
+          "sentence_index": 5,
+          "claim": "But we note that there is not a large increase in SER as more information is added \u2013 even for the most difficult setting, +STYLE, the models make an error on less than 10% of the slots in a given MR, on average.",
+          "predicted_label": "refutes",
+          "scores": {
+            "supports": 0.1589042991399765,
+            "refutes": 0.5322093367576599,
+            "nei": 0.30888631939888
+          },
+          "support_score": 0.1589042991399765,
+          "contradiction_score": 0.3733050376176834,
+          "uncertainty_score": 0.30888631939888
+        }
+      ],
+      "nei_sentences": [
+        {
+          "example_id": "P19-1596table_6_sent_001",
+          "sentence_index": 1,
+          "claim": "It is important to note here that we compute errors over value and adjective slots only, since these are the ones that we are able to identify lexically (we cannot identify whether an output makes an error on sentiment in this way, so we measure that with a human evaluation in Section 4.3).",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.3235903679742478e-05,
+            "refutes": 2.1937173642072594e-06,
+            "nei": 0.999984622001648
+          },
+          "support_score": 1.3235903679742478e-05,
+          "contradiction_score": -1.1042186315535218e-05,
+          "uncertainty_score": 0.999984622001648
+        },
+        {
+          "example_id": "P19-1596table_6_sent_002",
+          "sentence_index": 2,
+          "claim": "This means that the BASE outputs errors are computed over only value slots (since they don\u2019t contain adjectives), and the rest of the errors are computed over both value and adjective slots.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.0895150825381279,
+            "refutes": 0.027705136686563492,
+            "nei": 0.8827797770500183
+          },
+          "support_score": 0.0895150825381279,
+          "contradiction_score": -0.06180994585156441,
+          "uncertainty_score": 0.8827797770500183
+        },
+        {
+          "example_id": "P19-1596table_6_sent_003",
+          "sentence_index": 3,
+          "claim": "Amazingly, overall, Table 6 results show the SER is extremely low, even while achieving a large amount of stylistic variation.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 0.1303948611021042,
+            "refutes": 0.008116996847093105,
+            "nei": 0.8614881038665771
+          },
+          "support_score": 0.1303948611021042,
+          "contradiction_score": -0.12227786425501108,
+          "uncertainty_score": 0.8614881038665771
+        }
+      ],
+      "summary": {
+        "supports": 1,
+        "refutes": 2,
+        "nei": 3
+      }
+    },
+    {
+      "parent_id": "P19-1630table_1",
+      "paper": "",
+      "paper_id": "P19-1630",
+      "table_id": "table_1",
+      "caption": "Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.",
+      "supported_sentences": [
+        {
+          "example_id": "P19-1630table_1_sent_000",
+          "sentence_index": 0,
+          "claim": "Table 1 (top) presents results of models trained and tested on the synthetic multi-aspect dataset.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9996840953826904,
+            "refutes": 0.0002723181969486177,
+            "nei": 4.3620679207379e-05
+          },
+          "support_score": 0.9996840953826904,
+          "contradiction_score": -0.9994117771857418,
+          "uncertainty_score": 4.3620679207379e-05
+        },
+        {
+          "example_id": "P19-1630table_1_sent_001",
+          "sentence_index": 1,
+          "claim": "All aspect-aware models beat both baselines by a large margin.",
+          "predicted_label": "supports",
+          "scores": {
+            "supports": 0.9980326294898987,
+            "refutes": 1.1434724278558406e-09,
+            "nei": 0.0019674161449074745
+          },
+          "support_score": 0.9980326294898987,
+          "contradiction_score": -0.9980326283464263,
+          "uncertainty_score": 0.0019674161449074745
+        }
+      ],
+      "refuted_sentences": [],
+      "nei_sentences": [
+        {
+          "example_id": "P19-1630table_1_sent_002",
+          "sentence_index": 2,
+          "claim": "For classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, PG-net performs worse than lead-3.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 5.4186367198783e-11,
+            "refutes": 6.324373533553307e-13,
+            "nei": 1.0
+          },
+          "support_score": 5.4186367198783e-11,
+          "contradiction_score": -5.355392984542767e-11,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P19-1630table_1_sent_004",
+          "sentence_index": 4,
+          "claim": "Overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 1.0724716947851931e-10,
+            "refutes": 3.88562178405405e-18,
+            "nei": 1.0
+          },
+          "support_score": 1.0724716947851931e-10,
+          "contradiction_score": -1.0724716559289753e-10,
+          "uncertainty_score": 1.0
+        },
+        {
+          "example_id": "P19-1630table_1_sent_003",
+          "sentence_index": 3,
+          "claim": "Unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of ROUGE, and the decoder attention distributions are more amenable to extraction than encoder attention scores.",
+          "predicted_label": "nei",
+          "scores": {
+            "supports": 7.032456323941005e-07,
+            "refutes": 2.6540047315393167e-07,
+            "nei": 0.9999990463256836
+          },
+          "support_score": 7.032456323941005e-07,
+          "contradiction_score": -4.3784515924016887e-07,
+          "uncertainty_score": 0.9999990463256836
+        }
+      ],
+      "summary": {
+        "supports": 2,
+        "refutes": 0,
+        "nei": 3
+      }
+    }
+  ]
+}

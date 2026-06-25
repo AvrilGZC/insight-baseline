@@ -1,0 +1,1261 @@
+[
+  {
+    "id": "D17-1231table_6",
+    "paper_id": "D17-1231",
+    "table_id": "table_6",
+    "table_caption": "DA classification results (%) using different systems.",
+    "table_column_names": [
+      "row_label",
+      "set 1",
+      "set 2"
+    ],
+    "table_content_values": [
+      [
+        "CNN baseline no context",
+        "74.73",
+        "77.12"
+      ],
+      [
+        "CNN + DA predictions",
+        "76.73",
+        "79.9"
+      ],
+      [
+        "CNN + RNN/BLSTM",
+        "76.91",
+        "79.7"
+      ],
+      [
+        "CNN + CNN",
+        "77.15",
+        "79.74"
+      ],
+      [
+        "CNN prob + DA transition",
+        "76.7",
+        "79.69"
+      ]
+    ],
+    "description": "Table 6 summarizes the results for different systems, including the baseline CNN model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted DA information (posterior probabilities) is combined with the current sentence's CNN-based representation; (b) applying a BLSTM on top of the sentence CNN representation; (c) hierarchical CNN that combines the current sentence's CNN representation with its neighbors; (d) sequence decoding by combining CNN posteriors with DA transition scores. From the results, we can see the positive effect when context information is used. All the methods using context yield significant improvement over the baseline (statistically significant based on t-test). Comparing representing context information via the DA labels of the previous utterances vs using the hierarchical CNN or RNN model, we see there is not much difference.",
+    "sentences": [
+      "Table 6 summarizes the results for different systems, including the baseline CNN model without using context information (this baseline uses pretrained embeddings and speaker change feature), and four different ways of using context: (a) predicted DA information (posterior probabilities) is combined with the current sentence's CNN-based representation; (b) applying a BLSTM on top of the sentence CNN representation; (c) hierarchical CNN that combines the current sentence's CNN representation with its neighbors; (d) sequence decoding by combining CNN posteriors with DA transition scores.",
+      "From the results, we can see the positive effect when context information is used.",
+      "All the methods using context yield significant improvement over the baseline (statistically significant based on t-test).",
+      "Comparing representing context information via the DA labels of the previous utterances vs using the hierarchical CNN or RNN model, we see there is not much difference."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "header_mention": [
+      [
+        "CNN baseline no context",
+        "CNN + DA predictions",
+        "CNN + RNN/BLSTM",
+        "CNN + CNN",
+        "CNN prob + DA transition"
+      ],
+      [
+        "CNN + DA predictions",
+        "CNN + RNN/BLSTM",
+        "CNN + CNN",
+        "CNN prob + DA transition"
+      ],
+      [
+        "CNN baseline no context",
+        "CNN + DA predictions",
+        "CNN + RNN/BLSTM",
+        "CNN + CNN",
+        "CNN prob + DA transition"
+      ],
+      [
+        "CNN prob + DA transition"
+      ]
+    ]
+  },
+  {
+    "id": "D17-1310table_2",
+    "paper_id": "D17-1310",
+    "table_id": "table_2",
+    "table_caption": "Experiment results",
+    "table_column_names": [
+      "row_label",
+      "D1",
+      "D2"
+    ],
+    "table_content_values": [
+      [
+        "CRF",
+        "74.01%",
+        "69.56%"
+      ],
+      [
+        "Semi-CRF",
+        "68.75%",
+        "66.35%"
+      ],
+      [
+        "IHS_RD",
+        "74.55%",
+        " -"
+      ],
+      [
+        "DLIREC",
+        "73.78%",
+        " -"
+      ],
+      [
+        "NLANGP",
+        " -",
+        "72.34%"
+      ],
+      [
+        "AUEB",
+        " -",
+        "70.44%"
+      ],
+      [
+        "WDEmb",
+        "75.16%",
+        " -"
+      ],
+      [
+        "LSTM",
+        "75.25%",
+        "71.26%"
+      ],
+      [
+        "RNCRF",
+        "77.26%",
+        "69.74%"
+      ],
+      [
+        "Our Work",
+        "77.58%",
+        "73.44%"
+      ]
+    ],
+    "description": "Table 2 depicts experiment results. Compared to the best systems in SemEval challenge, MIN achieves 3.0% and 1.1% absolute gains on D1 and D2 respectively. Besides, our MIN outperforms WDEmb, a strong CRF-based system benefiting from several kinds of useful word embeddings, by 2.1% on D1. With memory interactions and consideration of sentimental sentence, our MIN boosts the performance of vanilla bi-directional LSTM (+2.0% and +1.7% respectively). It validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism. MIN also outperforms the state-of-the-art RNCRF on each dataset suggesting that memory interactions can be an alternative strategy instead of syntactic parsing. To further study the impact of each element in MIN, we conduct ablation experiments.",
+    "sentences": [
+      "Table 2 depicts experiment results.",
+      "Compared to the best systems in SemEval challenge, MIN achieves 3.0% and 1.1% absolute gains on D1 and D2 respectively.",
+      "Besides, our MIN outperforms WDEmb, a strong CRF-based system benefiting from several kinds of useful word embeddings, by 2.1% on D1.",
+      "With memory interactions and consideration of sentimental sentence, our MIN boosts the performance of vanilla bi-directional LSTM (+2.0% and +1.7% respectively).",
+      "It validates the effectiveness of the manually designed memory operations and the proposed memory interaction mechanism.",
+      "MIN also outperforms the state-of-the-art RNCRF on each dataset suggesting that memory interactions can be an alternative strategy instead of syntactic parsing.",
+      "To further study the impact of each element in MIN, we conduct ablation experiments."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2
+    ],
+    "header_mention": [
+      null,
+      [
+        "Our Work",
+        "D1",
+        "D2"
+      ],
+      [
+        "Our Work",
+        "WDEmb",
+        "D1"
+      ],
+      [
+        "Our Work",
+        "LSTM",
+        "D1",
+        "D2"
+      ],
+      [
+        "Our Work"
+      ],
+      [
+        "Our Work",
+        "RNCRF"
+      ],
+      [
+        "Our Work"
+      ]
+    ]
+  },
+  {
+    "id": "D18-1229table_1",
+    "paper_id": "D18-1229",
+    "table_id": "table_1",
+    "table_caption": "We show performance in terms of recall, computed per-category and averaged across categories, for the baseline, list and scatterplot interfaces. This is shown for the last round of bootstrapping (c.f. Fig. 3a) and extrapolation (c.f. Fig. 3b).",
+    "table_column_names": [
+      "row_label",
+      "scatterplot",
+      "list",
+      "baseline"
+    ],
+    "table_content_values": [
+      [
+        "bootstrapping",
+        "88.8",
+        "87.2",
+        "85.1"
+      ],
+      [
+        "extrapolation",
+        "84.7",
+        "83.5",
+        "78.6"
+      ]
+    ],
+    "description": "In Table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list. The recall performance in Table 1 also confirms the performance gains of the scatterplot.",
+    "sentences": [
+      "In Table 1 we also show recall, computed per-category and averaged over categories, at the last round of bootstrapping and similarly find the scatterplot outperforms the list.",
+      "The recall performance in Table 1 also confirms the performance gains of the scatterplot."
+    ],
+    "class_sentence": [
+      1,
+      1
+    ],
+    "header_mention": [
+      [
+        "bootstrapping",
+        "scatterplot",
+        "list"
+      ],
+      [
+        "extrapolation",
+        "scatterplot"
+      ]
+    ]
+  },
+  {
+    "id": "D18-1352table_4",
+    "paper_id": "D18-1352",
+    "table_id": "table_4",
+    "table_caption": "P@k, R@k, and macro-F1 results over all labels (the union of S, F, and Z).",
+    "table_column_names": [
+      "row_label",
+      "P@10",
+      "R@10",
+      "Macro-F1"
+    ],
+    "table_content_values": [
+      [
+        "CNN",
+        "0.562",
+        "0.407",
+        "0.028"
+      ],
+      [
+        "ACNN",
+        "0.624",
+        "0.452",
+        "0.068"
+      ],
+      [
+        "Match-CNN",
+        "0.561",
+        "0.415",
+        "0.033"
+      ],
+      [
+        "ZACNN",
+        "0.577",
+        "0.429",
+        "0.037"
+      ],
+      [
+        "ZAGCNN",
+        "0.587",
+        "0.439",
+        "0.038"
+      ]
+    ],
+    "description": "In Table 4 we compare the P@10, R@10, and macro-F1 measures across all three groups (the union of S, F, and Z) on the MIMIC III dataset. We emphasize that the evaluation metrics are calculated over all labels and are not averages of the metrics computed independently for each group. We find that R@10 is nearly equivalent to the R@10 on the frequent group in Table 3. Furthermore, we find that ACNN outperforms ZAGCNN in P@10 by almost 4%. To compare all methods with respect to macro-F1, we simply threshold each label at 0.5. Both R@k and P@k give more weight to frequent labels, thus it is expected that ACNN outperforms ZAGCNN for frequent labels. However, we also find that ACNN outperforms our methods with respect to Macro-F1.",
+    "sentences": [
+      "In Table 4 we compare the P@10, R@10, and macro-F1 measures across all three groups (the union of S, F, and Z) on the MIMIC III dataset.",
+      "We emphasize that the evaluation metrics are calculated over all labels and are not averages of the metrics computed independently for each group.",
+      "We find that R@10 is nearly equivalent to the R@10 on the frequent group in Table 3.",
+      "Furthermore, we find that ACNN outperforms ZAGCNN in P@10 by almost 4%.",
+      "To compare all methods with respect to macro-F1, we simply threshold each label at 0.5.",
+      "Both R@k and P@k give more weight to frequent labels, thus it is expected that ACNN outperforms ZAGCNN for frequent labels.",
+      "However, we also find that ACNN outperforms our methods with respect to Macro-F1."
+    ],
+    "class_sentence": [
+      1,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1
+    ],
+    "header_mention": [
+      [
+        "P@10",
+        "R@10",
+        "Macro-F1"
+      ],
+      null,
+      [
+        "R@10"
+      ],
+      [
+        "ACNN",
+        "ZAGCNN",
+        "P@10"
+      ],
+      [
+        "Macro-F1"
+      ],
+      [
+        "ACNN",
+        "ZAGCNN"
+      ],
+      [
+        "ACNN",
+        "ZAGCNN",
+        "Macro-F1"
+      ]
+    ]
+  },
+  {
+    "id": "D19-1197table_1",
+    "paper_id": "D19-1197",
+    "table_id": "table_1",
+    "table_caption": "Automatic evaluation results for the task of question response generation. Numbers in bold mean that the improvement over the best performing baseline is statistically significant (t-test with p-value< 0.01).",
+    "table_column_names": [
+      "row_label",
+      "BLEU-1",
+      "ROUGE-L",
+      "AVERAGE",
+      "EXTREME",
+      "GREEDY"
+    ],
+    "table_content_values": [
+      [
+        "Seq2Seq",
+        "0.037",
+        "0.111",
+        "0.656",
+        "0.438",
+        "0.456"
+      ],
+      [
+        "CVAE",
+        "0.094",
+        "0.088",
+        "0.685",
+        "0.414",
+        "0.422"
+      ],
+      [
+        "HTD",
+        "0.073",
+        "0.103",
+        "0.647",
+        "0.425",
+        "0.439"
+      ],
+      [
+        "S2S-Temp-MLE",
+        "0.097",
+        "0.119",
+        "0.699",
+        "0.438",
+        "0.457"
+      ],
+      [
+        "S2S-Temp-None",
+        "0.069",
+        "0.092",
+        "0.677",
+        "0.429",
+        "0.416"
+      ],
+      [
+        "S2S-Temp-50%",
+        "0.091",
+        "0.113",
+        "0.702",
+        "0.442",
+        "0.461"
+      ],
+      [
+        "S2S-Temp",
+        "0.102",
+        "0.128",
+        "0.710",
+        "0.451",
+        "0.469"
+      ]
+    ],
+    "description": "5.4 Evaluation Results. Table 1 report the results of automatic evaluation on the question response generation task. We can see that S2S-Temp outperforms all baseline models in terms of all metrics, and the improvements are statistically significant (t-test with p-value< 0.01). The results demonstrate that when only limited pairs are available, S2STemp can effectively leverage unpaired data to enhance the quality of response generation. Although lacking fine-grained check, from the comparison among S2S-Temp-None, S2S-Temp-50%, and S2S-Temp, we can conclude that the performance of S2S-Temp improves with more unpaired data. Moreover, without unpaired data, our model is even worse than CVAE since the structured templates cannot be accurately estimated from such a few data, and as long as half of the unpaired data are available, the model outperforms the baseline models on most metrics. The results further verified the important role the unpaired data plays in learning of a response generation model from low resources. S2S-Temp is better than S2S-TempMLE, indicating that the adversarial learning approach can indeed enhance the relevance of responses regarding to messages.",
+    "sentences": [
+      "5.4 Evaluation Results.",
+      "Table 1 report the results of automatic evaluation on the question response generation task.",
+      "We can see that S2S-Temp outperforms all baseline models in terms of all metrics, and the improvements are statistically significant (t-test with p-value< 0.01).",
+      "The results demonstrate that when only limited pairs are available, S2STemp can effectively leverage unpaired data to enhance the quality of response generation.",
+      "Although lacking fine-grained check, from the comparison among S2S-Temp-None, S2S-Temp-50%, and S2S-Temp, we can conclude that the performance of S2S-Temp improves with more unpaired data.",
+      "Moreover, without unpaired data, our model is even worse than CVAE since the structured templates cannot be accurately estimated from such a few data, and as long as half of the unpaired data are available, the model outperforms the baseline models on most metrics.",
+      "The results further verified the important role the unpaired data plays in learning of a response generation model from low resources.",
+      "S2S-Temp is better than S2S-TempMLE, indicating that the adversarial learning approach can indeed enhance the relevance of responses regarding to messages."
+    ],
+    "class_sentence": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1
+    ],
+    "header_mention": [
+      null,
+      null,
+      [
+        "S2S-Temp"
+      ],
+      [
+        "S2S-Temp"
+      ],
+      [
+        "S2S-Temp-None",
+        "S2S-Temp-50%",
+        "S2S-Temp"
+      ],
+      [
+        "CVAE",
+        "S2S-Temp"
+      ],
+      null,
+      [
+        "S2S-Temp",
+        "S2S-Temp-MLE"
+      ]
+    ]
+  },
+  {
+    "id": "D19-1399table_8",
+    "paper_id": "D19-1399",
+    "table_id": "table_8",
+    "table_caption": "F1 performance of DGLSTM-CRF with predicted dependencies against the best performing BiLSTM-CRF. \u2020: LAS is label attachment score which is the metric for dependency evaluation.",
+    "table_column_names": [
+      "row_label",
+      "English",
+      "Chinese",
+      "Catalan",
+      "Spanish"
+    ],
+    "table_content_values": [
+      [
+        "BiLSTM-CRF",
+        "88.98",
+        "79.2",
+        "78.46",
+        "80.59"
+      ],
+      [
+        "DGLSTM-CRF (Predicted)",
+        "89.64",
+        "79.59",
+        "82.37",
+        "83.92"
+      ],
+      [
+        "DGLSTM-CRF (Gold)",
+        "89.88",
+        "79.92",
+        "84.22",
+        "87.56"
+      ]
+    ],
+    "description": "Effect of Dependency Quality To evaluate how the quality of dependency trees affect the performance, we train a state-of-the-art dependency parser (Dozat and Manning, 2017) using our training set and make prediction on the development/test set. We implemented the dependency parser using the AllenNLP package (Gardner et al., 2017). Table 8 shows the performance (LAS) of the dependency parser on four languages (i.e., OntoNotes English, OntoNotes Chinese, Catalan and Spanish) and the performance of DGLSTM-CRF against the best performing BiLSTM-CRF with ELMo. DGLSTMCRF even with predicted dependencies is able to consistently outperform the BiLSTM-CRF on four languages. However, the performance is still worse than the DGLSTM-CRF with gold dependencies, especially on the Catalan and Spanish. Such results suggest that it is essential to have high-quality dependency annotations available for the proposed model.",
+    "sentences": [
+      "Effect of Dependency Quality To evaluate how the quality of dependency trees affect the performance, we train a state-of-the-art dependency parser (Dozat and Manning, 2017) using our training set and make prediction on the development/test set.",
+      "We implemented the dependency parser using the AllenNLP package (Gardner et al., 2017).",
+      "Table 8 shows the performance (LAS) of the dependency parser on four languages (i.e., OntoNotes English, OntoNotes Chinese, Catalan and Spanish) and the performance of DGLSTM-CRF against the best performing BiLSTM-CRF with ELMo.",
+      "DGLSTMCRF even with predicted dependencies is able to consistently outperform the BiLSTM-CRF on four languages.",
+      "However, the performance is still worse than the DGLSTM-CRF with gold dependencies, especially on the Catalan and Spanish.",
+      "Such results suggest that it is essential to have high-quality dependency annotations available for the proposed model."
+    ],
+    "class_sentence": [
+      2,
+      2,
+      1,
+      1,
+      1,
+      2
+    ],
+    "header_mention": [
+      null,
+      null,
+      [
+        "BiLSTM-CRF",
+        "DGLSTM-CRF (Predicted)",
+        "DGLSTM-CRF (Gold)",
+        "English",
+        "Catalan",
+        "Chinese",
+        "Spanish"
+      ],
+      [
+        "DGLSTM-CRF (Predicted)",
+        "BiLSTM-CRF"
+      ],
+      [
+        "DGLSTM-CRF (Predicted)",
+        "DGLSTM-CRF (Gold)",
+        "Catalan",
+        "Spanish"
+      ],
+      null
+    ]
+  },
+  {
+    "id": "P16-1181table_2",
+    "paper_id": "P16-1181",
+    "table_id": "table_2",
+    "table_caption": "Results (F1) for baselines for sentence boundary detection on dev sets.",
+    "table_column_names": [
+      "row_label",
+      "WSJ",
+      "Switchboard"
+    ],
+    "table_content_values": [
+      [
+        "OPENNLP",
+        "98.09",
+        "-"
+      ],
+      [
+        "CORENLP",
+        "98.6",
+        "-"
+      ],
+      [
+        "MARMOT",
+        "98.21",
+        "71.78"
+      ]
+    ],
+    "description": "Table 2 shows the accuracies of all baseline systems on the development sets. For WSJ all three algorithms achieve similar results which shows that MARMOT is a competitive baseline. As can be seen, predicting sentence boundaries for the Switchboard dataset is a more difficult task than for well-formatted text like the WSJ.",
+    "sentences": [
+      "Table 2 shows the accuracies of all baseline systems on the development sets.",
+      "For WSJ all three algorithms achieve similar results which shows that MARMOT is a competitive baseline.",
+      "As can be seen, predicting sentence boundaries for the Switchboard dataset is a more difficult task than for well-formatted text like the WSJ."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      2
+    ],
+    "header_mention": [
+      null,
+      [
+        "WSJ",
+        "MARMOT"
+      ],
+      [
+        "Switchboard",
+        "WSJ"
+      ]
+    ]
+  },
+  {
+    "id": "P16-1203table_5",
+    "paper_id": "P16-1203",
+    "table_id": "table_5",
+    "table_caption": "Performance of J48 for different feature settings",
+    "table_column_names": [
+      "row_label",
+      "Rec.",
+      "Prec.",
+      "F-score"
+    ],
+    "table_content_values": [
+      [
+        "Without domain features",
+        "0.803",
+        "0.801",
+        "0.802"
+      ],
+      [
+        "Only domain features",
+        "0.725",
+        "0.699",
+        "0.667"
+      ],
+      [
+        "Only phonological features",
+        "0.790",
+        "0.786",
+        "0.787"
+      ],
+      [
+        "Without poetic features",
+        "0.836",
+        "0.832",
+        "0.833"
+      ],
+      [
+        "Without consonance feature",
+        "0.823",
+        "0.820",
+        "0.821"
+      ],
+      [
+        "Without emotions features",
+        "0.814",
+        "0.810",
+        "0.811"
+      ],
+      [
+        "Without phonological features",
+        "0.798",
+        "0.792",
+        "0.793"
+      ],
+      [
+        "Without social features",
+        "0.807",
+        "0.803",
+        "0.804"
+      ],
+      [
+        "All features",
+        "0.824",
+        "0.822",
+        "0.823"
+      ]
+    ],
+    "description": "The phonological features are important separation criteria as evidenced by the drop in performance when they are excluded from the experimental setup (Table 5). Specifically, using all features except phonological features is equivalent to using phonological features alone (about F = 79% in both cases) and slightly worse that using all name-intrinsic features (about F = 80%).",
+    "sentences": [
+      "The phonological features are important separation criteria as evidenced by the drop in performance when they are excluded from the experimental setup (Table 5).",
+      "Specifically, using all features except phonological features is equivalent to using phonological features alone (about F = 79% in both cases) and slightly worse that using all name-intrinsic features (about F = 80%)."
+    ],
+    "class_sentence": [
+      1,
+      1
+    ],
+    "header_mention": [
+      null,
+      [
+        "Without phonological features",
+        "Only phonological features"
+      ]
+    ]
+  },
+  {
+    "id": "P17-2079table_3",
+    "paper_id": "P17-2079",
+    "table_id": "table_3",
+    "table_caption": "Comparison with another chatbot.",
+    "table_column_names": [
+      "row_label",
+      "Win",
+      "Equal",
+      "Lose"
+    ],
+    "table_content_values": [
+      [
+        "Number",
+        "330",
+        "382",
+        "165"
+      ],
+      [
+        "Percentage",
+        "37.64%",
+        "43.52%",
+        "18.84%"
+      ]
+    ],
+    "description": "To further evaluate our approach, we compared it with a publicly available chatbot. We select 878 out of the 1047 testing questions (used in the A/B test) by removing questions relevant to our chatbot, and use it to test the public one. To compare their answers with ours, two business analysts were asked to choose a better response for each testing question. Table 3 shows the averaged results from the two analysts, clearly our chatbot has a better performance (better on 37.64% of the 878 questions and worse on 18.84%). The Kappa measure between the analysts is 0.71, which shows a substantial agreement.",
+    "sentences": [
+      "To further evaluate our approach, we compared it with a publicly available chatbot.",
+      "We select 878 out of the 1047 testing questions (used in the A/B test) by removing questions relevant to our chatbot, and use it to test the public one.",
+      "To compare their answers with ours, two business analysts were asked to choose a better response for each testing question.",
+      "Table 3 shows the averaged results from the two analysts, clearly our chatbot has a better performance (better on 37.64% of the 878 questions and worse on 18.84%).",
+      "The Kappa measure between the analysts is 0.71, which shows a substantial agreement."
+    ],
+    "class_sentence": [
+      2,
+      2,
+      2,
+      1,
+      2
+    ],
+    "header_mention": [
+      null,
+      null,
+      null,
+      [
+        "Win",
+        "Lose",
+        "Number",
+        "Percentage"
+      ],
+      null
+    ]
+  },
+  {
+    "id": "P18-1044table_5",
+    "paper_id": "P18-1044",
+    "table_id": "table_5",
+    "table_caption": "The results of case analysis (Case) and zero anaphora resolution (Zero). We use F-measure as an evaluation measure. \u2021 denotes that the improvement is statistically significant at p < 0.05, compared with Gen using paired t-test.",
+    "table_column_names": [
+      "row_label",
+      "Case",
+      "Zero"
+    ],
+    "table_content_values": [
+      [
+        "Ouchi+ 2015",
+        "76.5",
+        "42.1"
+      ],
+      [
+        "Shibata+ 2016",
+        "89.3",
+        "53.4"
+      ],
+      [
+        "Gen",
+        "91.5",
+        "56.2"
+      ],
+      [
+        "Gen+Adv",
+        "92.0\u0081\u00f6",
+        "58.4\u0081\u00f6"
+      ]
+    ],
+    "description": "Table 5 lists the experimental results. Our models (Gen and Gen+Adv) outperformed the previous models. Furthermore, the proposed model with adversarial training (Gen+Adv) was significantly better than the supervised model (Gen).",
+    "sentences": [
+      "Table 5 lists the experimental results.",
+      "Our models (Gen and Gen+Adv) outperformed the previous models.",
+      "Furthermore, the proposed model with adversarial training (Gen+Adv) was significantly better than the supervised model (Gen)."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      1
+    ],
+    "header_mention": [
+      null,
+      [
+        "Gen",
+        "Gen+Adv",
+        "Ouchi+ 2015",
+        "Shibata+ 2016"
+      ],
+      [
+        "Gen",
+        "Gen+Adv"
+      ]
+    ]
+  },
+  {
+    "id": "P18-1120table_3",
+    "paper_id": "P18-1120",
+    "table_id": "table_3",
+    "table_caption": "Scores for MRR and Top k results.",
+    "table_column_names": [
+      "row_label",
+      "MRRE",
+      "MRRP",
+      "TOP1",
+      "TOP2",
+      "TOP3"
+    ],
+    "table_content_values": [
+      [
+        "EMBED",
+        "0.02",
+        "0.09",
+        "0.05",
+        "0.08",
+        "0.12"
+      ],
+      [
+        "PMI",
+        "0.20",
+        "0.33",
+        "0.25",
+        "0.36",
+        "0.41"
+      ],
+      [
+        "FREQ",
+        "0.23",
+        "0.34",
+        "0.23",
+        "0.32",
+        "0.40"
+      ],
+      [
+        "AP",
+        "0.28",
+        "0.38",
+        "0.29",
+        "0.41",
+        "0.47"
+      ],
+      [
+        "AP+AL",
+        "0.28",
+        "0.40",
+        "0.32",
+        "0.44",
+        "0.49"
+      ],
+      [
+        "AP+AO",
+        "0.23",
+        "0.33",
+        "0.24",
+        "0.35",
+        "0.43"
+      ],
+      [
+        "AP+AE",
+        "0.25",
+        "0.36",
+        "0.28",
+        "0.40",
+        "0.47"
+      ],
+      [
+        "AP+AL+E",
+        "0.29",
+        "0.42",
+        "0.35",
+        "0.44",
+        "0.52"
+      ]
+    ],
+    "description": "The first two columns of Table 3 show the MRR results under Exact Match and Partial Match conditions. The first 3 rows show the results for the baseline systems, and the remaining rows show results for our Activity Profile (AP) semi-supervised learning method. We show results for 5 variations of the algorithm: AP uses Algorithm 1, and the others use Algorithm 2 with different Activity Similarity measures: AP+AL (location profile similarity), AP+AO (overlap similarity), AP+AE (embedding similarity), and AP+AL+E (location profiles plus embeddings). Table 3 shows that our AP algorithm outperforms all 3 baseline methods. When adding Activity Similarity into the algorithm, we find that AL slightly improves performance, but AO and AE do not. However, we also tried combining them and obtained improved results by using AL and AE together, yielding an MRRP score of 0.42. To gain more insight about the behavior of the models, Table 3 also shows results for the topranked 1, 2, and 3 answers. For these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers. These results show that our AP method produces more correct answers at the top of the list than the baseline methods.",
+    "sentences": [
+      "The first two columns of Table 3 show the MRR results under Exact Match and Partial Match conditions.",
+      "The first 3 rows show the results for the baseline systems, and the remaining rows show results for our Activity Profile (AP) semi-supervised learning method.",
+      "We show results for 5 variations of the algorithm: AP uses Algorithm 1, and the others use Algorithm 2 with different Activity Similarity measures: AP+AL (location profile similarity), AP+AO (overlap similarity), AP+AE (embedding similarity), and AP+AL+E (location profiles plus embeddings).",
+      "Table 3 shows that our AP algorithm outperforms all 3 baseline methods.",
+      "When adding Activity Similarity into the algorithm, we find that AL slightly improves performance, but AO and AE do not.",
+      "However, we also tried combining them and obtained improved results by using AL and AE together, yielding an MRRP score of 0.42.",
+      "To gain more insight about the behavior of the models, Table 3 also shows results for the topranked 1, 2, and 3 answers.",
+      "For these experiments, the system gets full credit if any of its top k answers exactly matches the gold standard, or 50% credit if a partial match is among its top k answers.",
+      "These results show that our AP method produces more correct answers at the top of the list than the baseline methods."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1
+    ],
+    "header_mention": [
+      [
+        "MRRE",
+        "MRRP"
+      ],
+      [
+        "EMBED",
+        "PMI",
+        "FREQ",
+        "AP",
+        "AP+AL",
+        "AP+AO",
+        "AP+AE",
+        "AP+AL+E"
+      ],
+      [
+        "AP",
+        "AP+AL",
+        "AP+AO",
+        "AP+AE",
+        "AP+AL+E"
+      ],
+      [
+        "AP",
+        "AP+AL",
+        "AP+AO",
+        "AP+AE",
+        "AP+AL+E"
+      ],
+      [
+        "AP+AL",
+        "AP+AO",
+        "AP+AE"
+      ],
+      [
+        "AP+AL+E"
+      ],
+      [
+        "TOP1",
+        "TOP2",
+        "TOP3"
+      ],
+      null,
+      [
+        "AP",
+        "AP+AL",
+        "AP+AO",
+        "AP+AE",
+        "AP+AL+E"
+      ]
+    ]
+  },
+  {
+    "id": "P19-1012table_1",
+    "paper_id": "P19-1012",
+    "table_id": "table_1",
+    "table_caption": "Average (from six runs) parsing results (LAS) on test sets. \u2020 marks statistical significance (p-value < 0.05). Corresponding standard deviations are provided in Table 3 in Appendix A.",
+    "table_column_names": [
+      "row_label",
+      "avg.",
+      "en-ptb",
+      "ar",
+      "en",
+      "fi",
+      "grc",
+      "he",
+      "ko",
+      "ru",
+      "sv",
+      "zh"
+    ],
+    "table_content_values": [
+      [
+        "TBMIN",
+        "76.43",
+        "90.25",
+        "76.22",
+        "81.85\u2020",
+        "72.51\u2020",
+        "71.92\u2020",
+        "79.41\u2020",
+        "64.39",
+        "74.35\u2020",
+        "80.11\u2020",
+        "73.28\u2020"
+      ],
+      [
+        "TBEXT",
+        "75.56",
+        "90.25",
+        "75.77",
+        "80.5",
+        "71.47",
+        "70.32",
+        "78.62",
+        "63.88",
+        "73.82",
+        "78.8",
+        "72.17"
+      ],
+      [
+        "GBMIN",
+        "77.74",
+        "91.4",
+        "77.25",
+        "82.53",
+        "74.37",
+        "73.48",
+        "80.83",
+        "65.47",
+        "76.43",
+        "81.22",
+        "74.47"
+      ],
+      [
+        "GBSIBL",
+        "77.89",
+        "91.59",
+        "77.21",
+        "82.65",
+        "74.44",
+        "73.2",
+        "81.03",
+        "65.61",
+        "76.79\u2020",
+        "81.42",
+        "74.95\u2020"
+      ]
+    ],
+    "description": "Table 1 shows the accuracy of all the parsers. Comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers. Figure 2 displays the accuracy relative to dependency length in terms of recall8. It shows that the differences between models are not restricted to arcs of particular lengths.",
+    "sentences": [
+      "Table 1 shows the accuracy of all the parsers.",
+      "Comparing the simple and extended architectures we see that dropping the structural features does not hurt the performance, neither for transition-based nor graph-based parsers.",
+      "Figure 2 displays the accuracy relative to dependency length in terms of recall8.",
+      "It shows that the differences between models are not restricted to arcs of particular lengths."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "header_mention": [
+      null,
+      [
+        "TBMIN",
+        "TBEXT",
+        "GBMIN",
+        "GBSIBL"
+      ],
+      null,
+      null
+    ]
+  },
+  {
+    "id": "P19-1343table_6",
+    "paper_id": "P19-1343",
+    "table_id": "table_6",
+    "table_caption": "Hate speech results (3-fold cross val.). In most cells we show performance without thresholding and stratification (within bracket with thresholding and stratification). Green: Best performance in each column.",
+    "table_column_names": [
+      "row_label",
+      "Prec",
+      "Recall",
+      "F-score"
+    ],
+    "table_content_values": [
+      [
+        "Only synthetic",
+        "0.58 (0.63)",
+        "0.60 (0.63)",
+        "0.51 (0.52)"
+      ],
+      [
+        "Synthetic +Gold",
+        "0.59 (0.60)",
+        "0.63 (0.63)",
+        "0.53 (0.54)"
+      ],
+      [
+        "Gold",
+        "0.4",
+        "0.62",
+        "0.48"
+      ]
+    ],
+    "description": "4.9 Hate speech detection results . Table 6 shows hate speech detection results. Training with only synthetic text after thresholding and stratified sampling outperforms training with only gold-tagged text by 4% F1, and using both gold and synthetic text gives a F1 boost of 6% beyond using gold alone. Remarkably, synthetic text alone outperforms gold text, because gold text has high class imbalance, leading to poorer prediction. Because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction.",
+    "sentences": [
+      "4.9 Hate speech detection results .",
+      "Table 6 shows hate speech detection results.",
+      "Training with only synthetic text after thresholding and stratified sampling outperforms training with only gold-tagged text by 4% F1, and using both gold and synthetic text gives a F1 boost of 6% beyond using gold alone.",
+      "Remarkably, synthetic text alone outperforms gold text, because gold text has high class imbalance, leading to poorer prediction.",
+      "Because we can create arbitrary amounts of synthetic text, we can balance the labels to achieve better prediction."
+    ],
+    "class_sentence": [
+      2,
+      1,
+      1,
+      1,
+      2
+    ],
+    "header_mention": [
+      null,
+      null,
+      [
+        "Only synthetic",
+        "Synthetic +Gold",
+        "Gold"
+      ],
+      [
+        "Only synthetic"
+      ],
+      null
+    ]
+  },
+  {
+    "id": "P19-1596table_6",
+    "paper_id": "P19-1596",
+    "table_id": "table_6",
+    "table_caption": "Automatic semantic evaluation (higher is better for all but SER).",
+    "table_column_names": [
+      "row_label",
+      "BASE",
+      "+ADI",
+      "+SENT",
+      "+STYLE"
+    ],
+    "table_content_values": [
+      [
+        "BLEU",
+        "0.126",
+        "0.164",
+        "0.166",
+        "0.173"
+      ],
+      [
+        "METEOR",
+        "0.206",
+        "0.233",
+        "0.234",
+        "0.235"
+      ],
+      [
+        "CIDEr",
+        "1.3",
+        "1.686",
+        "1.692",
+        "1.838"
+      ],
+      [
+        "NIST",
+        "3.84",
+        "4.547",
+        "4.477",
+        "5.537"
+      ],
+      [
+        "Avg SER",
+        "0.053",
+        "0.063",
+        "0.064",
+        "0.09"
+      ]
+    ],
+    "description": "Table 6 presents the average SER rates for each model, where lower rates mean fewer mistakes (indicated by ?). It is important to note here that we compute errors over value and adjective slots only, since these are the ones that we are able to identify lexically (we cannot identify whether an output makes an error on sentiment in this way, so we measure that with a human evaluation in Section 4.3). This means that the BASE outputs errors are computed over only value slots (since they don\u2019t contain adjectives), and the rest of the errors are computed over both value and adjective slots. Amazingly, overall, Table 6 results show the SER is extremely low, even while achieving a large amount of stylistic variation. Naturally, BASE, with no access to style information, has the best (lowest) SER. But we note that there is not a large increase in SER as more information is added \u2013 even for the most difficult setting, +STYLE, the models make an error on less than 10% of the slots in a given MR, on average.",
+    "sentences": [
+      "Table 6 presents the average SER rates for each model, where lower rates mean fewer mistakes (indicated by ?).",
+      "It is important to note here that we compute errors over value and adjective slots only, since these are the ones that we are able to identify lexically (we cannot identify whether an output makes an error on sentiment in this way, so we measure that with a human evaluation in Section 4.3).",
+      "This means that the BASE outputs errors are computed over only value slots (since they don\u2019t contain adjectives), and the rest of the errors are computed over both value and adjective slots.",
+      "Amazingly, overall, Table 6 results show the SER is extremely low, even while achieving a large amount of stylistic variation.",
+      "Naturally, BASE, with no access to style information, has the best (lowest) SER.",
+      "But we note that there is not a large increase in SER as more information is added \u2013 even for the most difficult setting, +STYLE, the models make an error on less than 10% of the slots in a given MR, on average."
+    ],
+    "class_sentence": [
+      1,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "header_mention": [
+      [
+        "Avg SER"
+      ],
+      null,
+      null,
+      [
+        "Avg SER"
+      ],
+      [
+        "BASE",
+        "Avg SER"
+      ],
+      [
+        "Avg SER",
+        " +STYLE"
+      ]
+    ]
+  },
+  {
+    "id": "P19-1630table_1",
+    "paper_id": "P19-1630",
+    "table_id": "table_1",
+    "table_caption": "Quantitative comparison (Rouge 1, 2 and L) of models on aspect-specific summarization.",
+    "table_column_names": [
+      "row_label",
+      "Rouge 1",
+      "Rouge 2",
+      "Rouge L"
+    ],
+    "table_content_values": [
+      [
+        "lead-3",
+        "0.2150",
+        "0.0690",
+        "0.1410"
+      ],
+      [
+        "PG-net",
+        "0.1757",
+        "0.0472",
+        "0.1594"
+      ],
+      [
+        "enc-attn",
+        "0.2750",
+        "0.1027",
+        "0.2502"
+      ],
+      [
+        "dec-attn",
+        "0.2734",
+        "0.1005",
+        "0.2509"
+      ],
+      [
+        "sf",
+        "0.2802",
+        "0.1046",
+        "0.2536"
+      ],
+      [
+        "enc-attn-extract",
+        "0.3033",
+        "0.1092",
+        "0.2732"
+      ],
+      [
+        "dec-attn-extract",
+        "0.3326",
+        "0.1379",
+        "0.3026"
+      ]
+    ],
+    "description": "Table 1 (top) presents results of models trained and tested on the synthetic multi-aspect dataset. All aspect-aware models beat both baselines by a large margin. For classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, PG-net performs worse than lead-3. Unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of ROUGE, and the decoder attention distributions are more amenable to extraction than encoder attention scores. Overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines.",
+    "sentences": [
+      "Table 1 (top) presents results of models trained and tested on the synthetic multi-aspect dataset.",
+      "All aspect-aware models beat both baselines by a large margin.",
+      "For classical summarization, the lead-3 baseline remains a challenge to beat even by state-of-the-art systems, and also on multiaspect documents we observe that, unlike our systems, PG-net performs worse than lead-3.",
+      "Unsurprisingly, the extractive aspect-aware models outperform their abstractive counterparts in terms of ROUGE, and the decoder attention distributions are more amenable to extraction than encoder attention scores.",
+      "Overall, our structured models enable both abstractive and extractive aspectaware summarization at a quality clearly exceeding structure-agnostic baselines."
+    ],
+    "class_sentence": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "header_mention": [
+      null,
+      [
+        "enc-attn-extract",
+        "dec-attn-extract"
+      ],
+      [
+        "PG-net",
+        "lead-3"
+      ],
+      [
+        "enc-attn-extract",
+        "dec-attn-extract",
+        "enc-attn",
+        "dec-attn",
+        "Rouge 1",
+        "Rouge 2",
+        "Rouge L"
+      ],
+      [
+        "enc-attn-extract",
+        "dec-attn-extract",
+        "sf"
+      ]
+    ]
+  }
+]

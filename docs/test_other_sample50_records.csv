@@ -1,0 +1,51 @@
+group,record_id,paper_id,paper,covered,partially_covered,missing,contradicted
+test-Other,4,1903.03825v3,Interpolation Consistency Training for Semi-Supervised Learning,0,0,4,0
+test-Other,18,2003.06729v1,NoiseRank: Unsupervised Label Noise Reduction with Dependence Models,1,2,0,0
+test-Other,23,1907.06704v3,PPO Dash: Improving Generalization in Deep Reinforcement Learning,0,1,2,0
+test-Other,35,1909.12566v2,Distantly Supervised Question Parsing,0,1,3,0
+test-Other,66,1909.11723v1,Revisit Knowledge Distillation: a Teacher-free framework,0,1,3,0
+test-Other,91,1908.08704v1,Sequential Adversarial Learning for Self-Supervised Deep Visual Odometry,0,4,0,0
+test-Other,92,1908.08704v1,Sequential Adversarial Learning for Self-Supervised Deep Visual Odometry,0,1,2,0
+test-Other,96,1903.07902v6,A Comparative Study for Unsupervised Network Representation Learning,0,0,2,0
+test-Other,97,1802.01096v2,Software Engineers vs.Machine Learning Algorithms: An Empirical Study Assessing Performance and Reuse Tasks,0,0,4,0
+test-Other,98,1802.01096v2,Software Engineers vs.Machine Learning Algorithms: An Empirical Study Assessing Performance and Reuse Tasks,1,1,2,0
+test-Other,118,1911.03299v2,Subspace Clustering with Active Learning,0,0,3,0
+test-Other,119,1905.13613v1,Subspace Networks for Few-shot Classification,0,3,1,0
+test-Other,126,1911.09837v3,Graph Convolution Networks for Probabilistic Modeling of Driving Acceleration,0,0,4,0
+test-Other,137,1907.05282v1,Image Super-Resolution Using Attention Based DenseNet with Residual Deconvolution,0,1,0,0
+test-Other,143,1804.03166v5,Improving Confidence Estimates for Unfamiliar Examples,0,1,2,0
+test-Other,149,1912.09351v2,Instance-wise Depth and Motion Learning from Monocular Videos,0,0,3,0
+test-Other,167,1902.06684v1,"Learning Topological Representation for Networks via Hierarchical Sampling Identify applicable funding agency here. If none, delete this.",2,0,0,2
+test-Other,171,1911.13044v3,Learning wih Modular Representations for Long-Term Multi-Agent Motion Predictions,0,0,4,0
+test-Other,176,1805.01128v2,Local Critic Training of Deep Neural Networks,0,3,0,0
+test-Other,178,1805.01128v2,Local Critic Training of Deep Neural Networks,3,1,0,0
+test-Other,181,1910.10114v2,Mask Combination of Multi-layer Graphs for Global Structure Inference,2,1,2,0
+test-Other,184,1911.03845v3,Model-Based Reinforcement Learning with Adversarial Training for Online Recommendation,0,2,1,0
+test-Other,188,1905.10705v1,Modeling treatment events in disease progression,0,2,1,0
+test-Other,204,1903.11027v5,nuScenes: A multimodal dataset for autonomous driving,0,3,1,0
+test-Other,257,2002.01113v1,Efficient Riemannian Optimization on the Stiefel Manifold via the Cayley Transform,0,0,3,0
+test-Other,263,1809.08410v1,Entropy-Assisted Multi-Modal Emotion Recognition Framework Based on Physiological Signals,0,4,1,0
+test-Other,273,2003.03021v1,Exploiting Verified Neural Networks via Floating Point Numerical Error,0,0,4,0
+test-Other,276,2003.05747v1,Fast local linear regression with anchor regularization,0,1,2,0
+test-Other,277,2003.05747v1,Fast local linear regression with anchor regularization,0,0,4,0
+test-Other,284,2002.02618v1,Finding Quantum Critical Points with Neural-Network Quantum States,0,0,1,0
+test-Other,307,1910.08635v1,Tree-based Intelligent Intrusion Detection System in Internet of Vehicles,0,1,3,0
+test-Other,309,1905.02780v1,Uncertainty-Aware Data Aggregation for Deep Imitation Learning,0,0,3,0
+test-Other,323,1909.05125v1,Byzantine-Robust Federated Learning through Adaptive Model Averaging,0,2,1,0
+test-Other,336,1912.07819v1,Angular Learning: Toward Discriminative Embedded Features,1,0,3,0
+test-Other,341,2001.04643v1,DDSP: Differentiable Digital Signal Processing,0,1,3,0
+test-Other,343,1812.10366v2,A Poisson-Gaussian Denoising Dataset with Real Fluorescence Microscopy Images,1,0,3,0
+test-Other,350,1907.00749v1,Deep Multi-Task Learning for Anomalous Driving Detection Using CAN Bus Scalar Sensor Data,1,1,2,0
+test-Other,370,2002.10981v1,,2,0,2,0
+test-Other,386,2003.04109v1,QTIP: Quick simulation-based adaptation of Traffic model per Incident Parameters,0,1,3,0
+test-Other,394,1903.07424v1,Communication-Efficient Federated Deep Learning with Asynchronous Model Update and Temporally Weighted Aggregation,0,0,4,0
+test-Other,427,1803.01378v1,Localization under Topological Uncertainty for Lane Identification of Autonomous Vehicles,0,0,4,0
+test-Other,436,1911.09853v2,Domain Knowledge Aided Explainable Artificial Intelligence for Intrusion Detection and Response,0,0,3,0
+test-Other,447,1909.10400v1,Robot Navigation in Crowds by Graph Convolutional Networks with Attention Learned from Human Gaze,0,2,2,0
+test-Other,461,1907.02394v2,Automating Distributed Tiered Storage Management in Cluster Computing,0,0,5,0
+test-Other,468,1909.02966v1,"Robust Barrier Functions for a Fully Autonomous, Remotely Accessible Swarm-Robotics Testbed",1,0,0,0
+test-Other,477,2001.09018v1,"Are Distributed Ledger Technologies Ready for Smart Transportation Systems?1footnote 11footnote 1 Working draft paper, submitted for evaluation to an international conference.",0,3,1,0
+test-Other,492,1909.13599v2,End-to-End Motion Planning of Quadrotors Using Deep Reinforcement Learning,0,0,4,0
+test-Other,517,1809.08559v1,Which Source Code Plagiarism Detection Approach is More Humane?,0,0,3,0
+test-Other,535,1907.03390v2,"Augmenting Knowledge through Statistical,Goal-oriented Human-Robot Dialog",1,0,1,1
+test-Other,545,1903.12359v2,Parallelizable global conformal parameterization of simply-connected surfaces via partial welding,1,1,1,0
